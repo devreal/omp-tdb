@@ -1,0 +1,436 @@
+WARNING: [?]Using OMP_NUM_THREADS in an OmpSs applications is discouraged, the recommended way to set the number of worker smp threads is using the flag --smp-workers.
+Running OpenMP benchmark version 3.0
+Compiled with GNU-5.3.0
+	1 thread(s)
+	20 outer repetitions
+	1000.00 test time (microseconds)
+	274 delay length (iterations) 
+	0.800000 delay time (microseconds)
+
+--------------------------------------------------------
+Computing reference time 1 time using 2048 innerreps and 1000 tasks
+
+      Type    Sample_size        Average            Min            Max           S.D.         CONF95       OVERHEAD     OVERHEAD_CONF95       Outliers
+TIME                   20     0.00077845      0.0007588      0.0008106     2.2696e-05     4.4484e-05     0.00077845          4.4484e-05              0
+reference time 1 time     = 0.000778 microseconds +/- 0.000044
+TEST
+--------------------------------------------------------
+Computing TASK DEPENDENCY NEIGHBORS MASTER 1 time using 1 innerreps and 1000 tasks
+
+      Type    Sample_size        Average            Min            Max           S.D.         CONF95       OVERHEAD     OVERHEAD_CONF95       Outliers
+TIME                   20          10.55          9.409          11.23        0.47646        0.93387         10.549             0.93391              0
+DELAYCNT: 21000
+
+TASK DEPENDENCY NEIGHBORS MASTER 1 time     = 10.549664 microseconds +/- 0.933868
+TASK DEPENDENCY NEIGHBORS MASTER 1 overhead = 10.548886 microseconds +/- 0.933912
+TEST
+--------------------------------------------------------
+Computing TASK DEPENDENCY NEIGHBORS MASTER 2 time using 1 innerreps and 1000 tasks
+
+      Type    Sample_size        Average            Min            Max           S.D.         CONF95       OVERHEAD     OVERHEAD_CONF95       Outliers
+TIME                   20         15.294         14.893         15.845        0.23588        0.46233         15.293             0.46238              0
+DELAYCNT: 21000
+
+TASK DEPENDENCY NEIGHBORS MASTER 2 time     = 15.293646 microseconds +/- 0.462332
+TASK DEPENDENCY NEIGHBORS MASTER 2 overhead = 15.292867 microseconds +/- 0.462376
+TEST
+--------------------------------------------------------
+Computing TASK DEPENDENCY NEIGHBORS MASTER 4 time using 1 innerreps and 1000 tasks
+
+      Type    Sample_size        Average            Min            Max           S.D.         CONF95       OVERHEAD     OVERHEAD_CONF95       Outliers
+TIME                   20         19.483         19.026         19.827        0.25167        0.49327         19.482             0.49332              0
+DELAYCNT: 21000
+
+TASK DEPENDENCY NEIGHBORS MASTER 4 time     = 19.482541 microseconds +/- 0.493274
+TASK DEPENDENCY NEIGHBORS MASTER 4 overhead = 19.481763 microseconds +/- 0.493318
+TEST
+--------------------------------------------------------
+Computing TASK DEPENDENCY NEIGHBORS MASTER 8 time using 1 innerreps and 1000 tasks
+
+      Type    Sample_size        Average            Min            Max           S.D.         CONF95       OVERHEAD     OVERHEAD_CONF95       Outliers
+TIME                   20         26.801         25.675         27.991        0.61605         1.2075           26.8              1.2075              0
+DELAYCNT: 21000
+
+TASK DEPENDENCY NEIGHBORS MASTER 8 time     = 26.800525 microseconds +/- 1.207461
+TASK DEPENDENCY NEIGHBORS MASTER 8 overhead = 26.799747 microseconds +/- 1.207506
+TEST
+--------------------------------------------------------
+Computing TASK DEPENDENCY NEIGHBORS MASTER 16 time using 1 innerreps and 1000 tasks
+
+      Type    Sample_size        Average            Min            Max           S.D.         CONF95       OVERHEAD     OVERHEAD_CONF95       Outliers
+TIME                   20         42.909         42.082         44.911        0.64159         1.2575         42.908              1.2576              1
+DELAYCNT: 21000
+
+TASK DEPENDENCY NEIGHBORS MASTER 16 time     = 42.908800 microseconds +/- 1.257517
+TASK DEPENDENCY NEIGHBORS MASTER 16 overhead = 42.908021 microseconds +/- 1.257561
+TEST
+--------------------------------------------------------
+Computing TASK DEPENDENCY NEIGHBORS MASTER 24 time using 1 innerreps and 1000 tasks
+
+      Type    Sample_size        Average            Min            Max           S.D.         CONF95       OVERHEAD     OVERHEAD_CONF95       Outliers
+TIME                   20         63.517         62.216         64.509        0.61572         1.2068         63.516              1.2069              0
+DELAYCNT: 21000
+
+TASK DEPENDENCY NEIGHBORS MASTER 24 time     = 63.516700 microseconds +/- 1.206819
+TASK DEPENDENCY NEIGHBORS MASTER 24 overhead = 63.515922 microseconds +/- 1.206863
+TEST
+--------------------------------------------------------
+Computing TASK DEPENDENCY NEIGHBORS MASTER 32 time using 1 innerreps and 1000 tasks
+
+      Type    Sample_size        Average            Min            Max           S.D.         CONF95       OVERHEAD     OVERHEAD_CONF95       Outliers
+TIME                   20         88.039         85.411         89.496         1.1336         2.2219         88.038              2.2219              0
+DELAYCNT: 21000
+
+TASK DEPENDENCY NEIGHBORS MASTER 32 time     = 88.038838 microseconds +/- 2.221883
+TASK DEPENDENCY NEIGHBORS MASTER 32 overhead = 88.038059 microseconds +/- 2.221928
+TEST
+--------------------------------------------------------
+Computing TASK DEPENDENCY IN LINKED MASTER 1 time using 1 innerreps and 1000 tasks
+
+      Type    Sample_size        Average            Min            Max           S.D.         CONF95       OVERHEAD     OVERHEAD_CONF95       Outliers
+TIME                   20         7.8906         7.7891         8.0309       0.057343        0.11239         7.8898             0.11244              0
+DELAYCNT: 21000
+
+TASK DEPENDENCY IN LINKED MASTER 1 time     = 7.890618 microseconds +/- 0.112393
+TASK DEPENDENCY IN LINKED MASTER 1 overhead = 7.889839 microseconds +/- 0.112437
+TEST
+--------------------------------------------------------
+Computing TASK DEPENDENCY IN LINKED MASTER 2 time using 1 innerreps and 1000 tasks
+
+      Type    Sample_size        Average            Min            Max           S.D.         CONF95       OVERHEAD     OVERHEAD_CONF95       Outliers
+TIME                   20         12.772         12.628          13.05        0.11861        0.23247         12.771             0.23251              0
+DELAYCNT: 21000
+
+TASK DEPENDENCY IN LINKED MASTER 2 time     = 12.771785 microseconds +/- 0.232470
+TASK DEPENDENCY IN LINKED MASTER 2 overhead = 12.771007 microseconds +/- 0.232514
+TEST
+--------------------------------------------------------
+Computing TASK DEPENDENCY IN LINKED MASTER 4 time using 1 innerreps and 1000 tasks
+
+      Type    Sample_size        Average            Min            Max           S.D.         CONF95       OVERHEAD     OVERHEAD_CONF95       Outliers
+TIME                   20         34.498         33.177         35.484        0.73216          1.435         34.497              1.4351              0
+DELAYCNT: 21000
+
+TASK DEPENDENCY IN LINKED MASTER 4 time     = 34.497678 microseconds +/- 1.435031
+TASK DEPENDENCY IN LINKED MASTER 4 overhead = 34.496900 microseconds +/- 1.435075
+TEST
+--------------------------------------------------------
+Computing TASK DEPENDENCY IN LINKED MASTER 8 time using 1 innerreps and 1000 tasks
+
+      Type    Sample_size        Average            Min            Max           S.D.         CONF95       OVERHEAD     OVERHEAD_CONF95       Outliers
+TIME                   20         76.508         73.431         79.243         1.9717         3.8646         76.508              3.8647              0
+DELAYCNT: 21000
+
+TASK DEPENDENCY IN LINKED MASTER 8 time     = 76.508379 microseconds +/- 3.864612
+TASK DEPENDENCY IN LINKED MASTER 8 overhead = 76.507601 microseconds +/- 3.864657
+TEST
+--------------------------------------------------------
+Computing TASK DEPENDENCY IN LINKED MASTER 16 time using 1 innerreps and 1000 tasks
+
+      Type    Sample_size        Average            Min            Max           S.D.         CONF95       OVERHEAD     OVERHEAD_CONF95       Outliers
+TIME                   20         176.34         166.48         183.39         4.9734         9.7479         176.34               9.748              0
+DELAYCNT: 21000
+
+TASK DEPENDENCY IN LINKED MASTER 16 time     = 176.336539 microseconds +/- 9.747923
+TASK DEPENDENCY IN LINKED MASTER 16 overhead = 176.335760 microseconds +/- 9.747968
+TEST
+--------------------------------------------------------
+Computing TASK DEPENDENCY IN LINKED MASTER 24 time using 1 innerreps and 1000 tasks
+
+      Type    Sample_size        Average            Min            Max           S.D.         CONF95       OVERHEAD     OVERHEAD_CONF95       Outliers
+TIME                   20         310.71         291.65         321.85         9.7833         19.175         310.71              19.175              0
+DELAYCNT: 21000
+
+TASK DEPENDENCY IN LINKED MASTER 24 time     = 310.709655 microseconds +/- 19.175304
+TASK DEPENDENCY IN LINKED MASTER 24 overhead = 310.708877 microseconds +/- 19.175348
+TEST
+--------------------------------------------------------
+Computing TASK DEPENDENCY IN LINKED MASTER 32 time using 1 innerreps and 1000 tasks
+
+      Type    Sample_size        Average            Min            Max           S.D.         CONF95       OVERHEAD     OVERHEAD_CONF95       Outliers
+TIME                   20          473.2         445.65         487.91          11.86         23.245          473.2              23.245              0
+DELAYCNT: 21000
+
+TASK DEPENDENCY IN LINKED MASTER 32 time     = 473.197901 microseconds +/- 23.245427
+TASK DEPENDENCY IN LINKED MASTER 32 overhead = 473.197123 microseconds +/- 23.245472
+TEST
+--------------------------------------------------------
+Computing TASK DEPENDENCY OUT LINKED MASTER 1 time using 1 innerreps and 1000 tasks
+
+      Type    Sample_size        Average            Min            Max           S.D.         CONF95       OVERHEAD     OVERHEAD_CONF95       Outliers
+TIME                   20          10.86         10.501         11.061        0.12932        0.25346         10.859              0.2535              0
+DELAYCNT: 21000
+
+TASK DEPENDENCY OUT LINKED MASTER 1 time     = 10.859501 microseconds +/- 0.253460
+TASK DEPENDENCY OUT LINKED MASTER 1 overhead = 10.858723 microseconds +/- 0.253504
+TEST
+--------------------------------------------------------
+Computing TASK DEPENDENCY OUT LINKED MASTER 2 time using 1 innerreps and 1000 tasks
+
+      Type    Sample_size        Average            Min            Max           S.D.         CONF95       OVERHEAD     OVERHEAD_CONF95       Outliers
+TIME                   20         17.727         17.087         18.481        0.39477        0.77374         17.726             0.77379              0
+DELAYCNT: 21000
+
+TASK DEPENDENCY OUT LINKED MASTER 2 time     = 17.727160 microseconds +/- 0.773741
+TASK DEPENDENCY OUT LINKED MASTER 2 overhead = 17.726382 microseconds +/- 0.773786
+TEST
+--------------------------------------------------------
+Computing TASK DEPENDENCY OUT LINKED MASTER 4 time using 1 innerreps and 1000 tasks
+
+      Type    Sample_size        Average            Min            Max           S.D.         CONF95       OVERHEAD     OVERHEAD_CONF95       Outliers
+TIME                   20         38.583         37.585         39.771        0.68662         1.3458         38.582              1.3458              0
+DELAYCNT: 21000
+
+TASK DEPENDENCY OUT LINKED MASTER 4 time     = 38.583016 microseconds +/- 1.345777
+TASK DEPENDENCY OUT LINKED MASTER 4 overhead = 38.582238 microseconds +/- 1.345821
+TEST
+--------------------------------------------------------
+Computing TASK DEPENDENCY OUT LINKED MASTER 8 time using 1 innerreps and 1000 tasks
+
+      Type    Sample_size        Average            Min            Max           S.D.         CONF95       OVERHEAD     OVERHEAD_CONF95       Outliers
+TIME                   20         81.432         80.756         81.988        0.24172        0.47378         81.432             0.47382              0
+DELAYCNT: 21000
+
+TASK DEPENDENCY OUT LINKED MASTER 8 time     = 81.432402 microseconds +/- 0.473780
+TASK DEPENDENCY OUT LINKED MASTER 8 overhead = 81.431624 microseconds +/- 0.473824
+TEST
+--------------------------------------------------------
+Computing TASK DEPENDENCY OUT LINKED MASTER 16 time using 1 innerreps and 1000 tasks
+
+      Type    Sample_size        Average            Min            Max           S.D.         CONF95       OVERHEAD     OVERHEAD_CONF95       Outliers
+TIME                   20         190.68         189.19         191.38        0.65516         1.2841         190.68              1.2842              0
+DELAYCNT: 21000
+
+TASK DEPENDENCY OUT LINKED MASTER 16 time     = 190.680075 microseconds +/- 1.284112
+TASK DEPENDENCY OUT LINKED MASTER 16 overhead = 190.679296 microseconds +/- 1.284156
+TEST
+--------------------------------------------------------
+Computing TASK DEPENDENCY OUT LINKED MASTER 24 time using 1 innerreps and 1000 tasks
+
+      Type    Sample_size        Average            Min            Max           S.D.         CONF95       OVERHEAD     OVERHEAD_CONF95       Outliers
+TIME                   20         336.34         334.56         346.83         2.7485          5.387         336.34               5.387              1
+DELAYCNT: 21000
+
+TASK DEPENDENCY OUT LINKED MASTER 24 time     = 336.336160 microseconds +/- 5.386973
+TASK DEPENDENCY OUT LINKED MASTER 24 overhead = 336.335381 microseconds +/- 5.387018
+TEST
+--------------------------------------------------------
+Computing TASK DEPENDENCY OUT LINKED MASTER 32 time using 1 innerreps and 1000 tasks
+
+      Type    Sample_size        Average            Min            Max           S.D.         CONF95       OVERHEAD     OVERHEAD_CONF95       Outliers
+TIME                   20         512.12         490.04         528.36          9.633         18.881         512.12              18.881              0
+DELAYCNT: 21000
+
+TASK DEPENDENCY OUT LINKED MASTER 32 time     = 512.124252 microseconds +/- 18.880652
+TASK DEPENDENCY OUT LINKED MASTER 32 overhead = 512.123474 microseconds +/- 18.880697
+TEST
+--------------------------------------------------------
+Computing TASK DEPENDENCY INOUT LINKED MASTER 1 time using 1 innerreps and 1000 tasks
+
+      Type    Sample_size        Average            Min            Max           S.D.         CONF95       OVERHEAD     OVERHEAD_CONF95       Outliers
+TIME                   20         10.917         10.676         11.157        0.10931        0.21425         10.917             0.21429              0
+DELAYCNT: 21000
+
+TASK DEPENDENCY INOUT LINKED MASTER 1 time     = 10.917401 microseconds +/- 0.214246
+TASK DEPENDENCY INOUT LINKED MASTER 1 overhead = 10.916623 microseconds +/- 0.214291
+TEST
+--------------------------------------------------------
+Computing TASK DEPENDENCY INOUT LINKED MASTER 2 time using 1 innerreps and 1000 tasks
+
+      Type    Sample_size        Average            Min            Max           S.D.         CONF95       OVERHEAD     OVERHEAD_CONF95       Outliers
+TIME                   20         17.913         17.374         18.282        0.24141        0.47317         17.912             0.47321              0
+DELAYCNT: 21000
+
+TASK DEPENDENCY INOUT LINKED MASTER 2 time     = 17.912650 microseconds +/- 0.473166
+TASK DEPENDENCY INOUT LINKED MASTER 2 overhead = 17.911872 microseconds +/- 0.473211
+TEST
+--------------------------------------------------------
+Computing TASK DEPENDENCY INOUT LINKED MASTER 4 time using 1 innerreps and 1000 tasks
+
+      Type    Sample_size        Average            Min            Max           S.D.         CONF95       OVERHEAD     OVERHEAD_CONF95       Outliers
+TIME                   20         39.194         38.973         39.479        0.15683        0.30739         39.193             0.30744              0
+DELAYCNT: 21000
+
+TASK DEPENDENCY INOUT LINKED MASTER 4 time     = 39.194107 microseconds +/- 0.307391
+TASK DEPENDENCY INOUT LINKED MASTER 4 overhead = 39.193329 microseconds +/- 0.307435
+TEST
+--------------------------------------------------------
+Computing TASK DEPENDENCY INOUT LINKED MASTER 8 time using 1 innerreps and 1000 tasks
+
+      Type    Sample_size        Average            Min            Max           S.D.         CONF95       OVERHEAD     OVERHEAD_CONF95       Outliers
+TIME                   20         85.499         85.006         86.443         0.3582        0.70207         85.498             0.70211              0
+DELAYCNT: 21000
+
+TASK DEPENDENCY INOUT LINKED MASTER 8 time     = 85.499132 microseconds +/- 0.702067
+TASK DEPENDENCY INOUT LINKED MASTER 8 overhead = 85.498353 microseconds +/- 0.702111
+TEST
+--------------------------------------------------------
+Computing TASK DEPENDENCY INOUT LINKED MASTER 16 time using 1 innerreps and 1000 tasks
+
+      Type    Sample_size        Average            Min            Max           S.D.         CONF95       OVERHEAD     OVERHEAD_CONF95       Outliers
+TIME                   20         201.23         199.73          202.2        0.73434         1.4393         201.23              1.4393              0
+DELAYCNT: 21000
+
+TASK DEPENDENCY INOUT LINKED MASTER 16 time     = 201.228535 microseconds +/- 1.439305
+TASK DEPENDENCY INOUT LINKED MASTER 16 overhead = 201.227757 microseconds +/- 1.439349
+TEST
+--------------------------------------------------------
+Computing TASK DEPENDENCY INOUT LINKED MASTER 24 time using 1 innerreps and 1000 tasks
+
+      Type    Sample_size        Average            Min            Max           S.D.         CONF95       OVERHEAD     OVERHEAD_CONF95       Outliers
+TIME                   20         353.14         351.39         359.28         1.9347         3.7921         353.14              3.7921              1
+DELAYCNT: 21000
+
+TASK DEPENDENCY INOUT LINKED MASTER 24 time     = 353.143597 microseconds +/- 3.792069
+TASK DEPENDENCY INOUT LINKED MASTER 24 overhead = 353.142818 microseconds +/- 3.792114
+TEST
+--------------------------------------------------------
+Computing TASK DEPENDENCY INOUT LINKED MASTER 32 time using 1 innerreps and 1000 tasks
+
+      Type    Sample_size        Average            Min            Max           S.D.         CONF95       OVERHEAD     OVERHEAD_CONF95       Outliers
+TIME                   20         545.68         534.53         574.08          11.95         23.422         545.68              23.422              0
+DELAYCNT: 21000
+
+TASK DEPENDENCY INOUT LINKED MASTER 32 time     = 545.682919 microseconds +/- 23.421887
+TASK DEPENDENCY INOUT LINKED MASTER 32 overhead = 545.682141 microseconds +/- 23.421932
+TEST
+--------------------------------------------------------
+Computing TASK DEPENDENCY OUT CHAIN MASTER 1 time using 1 innerreps and 1000 tasks
+
+      Type    Sample_size        Average            Min            Max           S.D.         CONF95       OVERHEAD     OVERHEAD_CONF95       Outliers
+TIME                   20          6.665         6.6068         6.8638       0.056969        0.11166         6.6642              0.1117              1
+DELAYCNT: 21000
+
+TASK DEPENDENCY OUT CHAIN MASTER 1 time     = 6.664991 microseconds +/- 0.111660
+TASK DEPENDENCY OUT CHAIN MASTER 1 overhead = 6.664213 microseconds +/- 0.111705
+TEST
+--------------------------------------------------------
+Computing TASK DEPENDENCY OUT CHAIN MASTER 2 time using 1 innerreps and 1000 tasks
+
+      Type    Sample_size        Average            Min            Max           S.D.         CONF95       OVERHEAD     OVERHEAD_CONF95       Outliers
+TIME                   20         8.6116         8.5571         8.6892        0.03392       0.066482         8.6108            0.066527              0
+DELAYCNT: 21000
+
+TASK DEPENDENCY OUT CHAIN MASTER 2 time     = 8.611560 microseconds +/- 0.066482
+TASK DEPENDENCY OUT CHAIN MASTER 2 overhead = 8.610781 microseconds +/- 0.066527
+TEST
+--------------------------------------------------------
+Computing TASK DEPENDENCY OUT CHAIN MASTER 4 time using 1 innerreps and 1000 tasks
+
+      Type    Sample_size        Average            Min            Max           S.D.         CONF95       OVERHEAD     OVERHEAD_CONF95       Outliers
+TIME                   20         12.238         12.128         12.456       0.094349        0.18492         12.238             0.18497              0
+DELAYCNT: 21000
+
+TASK DEPENDENCY OUT CHAIN MASTER 4 time     = 12.238419 microseconds +/- 0.184924
+TASK DEPENDENCY OUT CHAIN MASTER 4 overhead = 12.237641 microseconds +/- 0.184969
+TEST
+--------------------------------------------------------
+Computing TASK DEPENDENCY OUT CHAIN MASTER 8 time using 1 innerreps and 1000 tasks
+
+      Type    Sample_size        Average            Min            Max           S.D.         CONF95       OVERHEAD     OVERHEAD_CONF95       Outliers
+TIME                   20          19.89         19.732         20.093        0.09237        0.18105          19.89             0.18109              0
+DELAYCNT: 21000
+
+TASK DEPENDENCY OUT CHAIN MASTER 8 time     = 19.890296 microseconds +/- 0.181046
+TASK DEPENDENCY OUT CHAIN MASTER 8 overhead = 19.889518 microseconds +/- 0.181091
+TEST
+--------------------------------------------------------
+Computing TASK DEPENDENCY OUT CHAIN MASTER 16 time using 1 innerreps and 1000 tasks
+
+      Type    Sample_size        Average            Min            Max           S.D.         CONF95       OVERHEAD     OVERHEAD_CONF95       Outliers
+TIME                   20         35.388         35.142         35.811        0.18356        0.35977         35.387             0.35981              0
+DELAYCNT: 21000
+
+TASK DEPENDENCY OUT CHAIN MASTER 16 time     = 35.387957 microseconds +/- 0.359768
+TASK DEPENDENCY OUT CHAIN MASTER 16 overhead = 35.387179 microseconds +/- 0.359813
+TEST
+--------------------------------------------------------
+Computing TASK DEPENDENCY OUT CHAIN MASTER 24 time using 1 innerreps and 1000 tasks
+
+      Type    Sample_size        Average            Min            Max           S.D.         CONF95       OVERHEAD     OVERHEAD_CONF95       Outliers
+TIME                   20         55.623          55.23          55.86         0.1495        0.29302         55.622             0.29306              0
+DELAYCNT: 21000
+
+TASK DEPENDENCY OUT CHAIN MASTER 24 time     = 55.623174 microseconds +/- 0.293016
+TASK DEPENDENCY OUT CHAIN MASTER 24 overhead = 55.622395 microseconds +/- 0.293060
+TEST
+--------------------------------------------------------
+Computing TASK DEPENDENCY OUT CHAIN MASTER 32 time using 1 innerreps and 1000 tasks
+
+      Type    Sample_size        Average            Min            Max           S.D.         CONF95       OVERHEAD     OVERHEAD_CONF95       Outliers
+TIME                   20         75.591         74.973         77.263        0.45739        0.89649          75.59             0.89653              1
+DELAYCNT: 21000
+
+TASK DEPENDENCY OUT CHAIN MASTER 32 time     = 75.590992 microseconds +/- 0.896488
+TASK DEPENDENCY OUT CHAIN MASTER 32 overhead = 75.590214 microseconds +/- 0.896533
+TEST
+--------------------------------------------------------
+Computing TASK DEPENDENCY INOUT CHAIN MASTER 1 time using 1 innerreps and 1000 tasks
+
+      Type    Sample_size        Average            Min            Max           S.D.         CONF95       OVERHEAD     OVERHEAD_CONF95       Outliers
+TIME                   20         7.0092          6.963          7.129       0.050352       0.098691         7.0085            0.098735              0
+DELAYCNT: 21000
+
+TASK DEPENDENCY INOUT CHAIN MASTER 1 time     = 7.009244 microseconds +/- 0.098691
+TASK DEPENDENCY INOUT CHAIN MASTER 1 overhead = 7.008466 microseconds +/- 0.098735
+TEST
+--------------------------------------------------------
+Computing TASK DEPENDENCY INOUT CHAIN MASTER 2 time using 1 innerreps and 1000 tasks
+
+      Type    Sample_size        Average            Min            Max           S.D.         CONF95       OVERHEAD     OVERHEAD_CONF95       Outliers
+TIME                   20         9.1754         9.1119          9.223       0.033659       0.065971         9.1746            0.066016              0
+DELAYCNT: 21000
+
+TASK DEPENDENCY INOUT CHAIN MASTER 2 time     = 9.175396 microseconds +/- 0.065971
+TASK DEPENDENCY INOUT CHAIN MASTER 2 overhead = 9.174618 microseconds +/- 0.066016
+TEST
+--------------------------------------------------------
+Computing TASK DEPENDENCY INOUT CHAIN MASTER 4 time using 1 innerreps and 1000 tasks
+
+      Type    Sample_size        Average            Min            Max           S.D.         CONF95       OVERHEAD     OVERHEAD_CONF95       Outliers
+TIME                   20          14.13         14.067         14.203       0.031108       0.060971         14.129            0.061016              0
+DELAYCNT: 21000
+
+TASK DEPENDENCY INOUT CHAIN MASTER 4 time     = 14.130068 microseconds +/- 0.060971
+TASK DEPENDENCY INOUT CHAIN MASTER 4 overhead = 14.129289 microseconds +/- 0.061016
+TEST
+--------------------------------------------------------
+Computing TASK DEPENDENCY INOUT CHAIN MASTER 8 time using 1 innerreps and 1000 tasks
+
+      Type    Sample_size        Average            Min            Max           S.D.         CONF95       OVERHEAD     OVERHEAD_CONF95       Outliers
+TIME                   20         23.857         23.664         24.104       0.099881        0.19577         23.856             0.19581              0
+DELAYCNT: 21000
+
+TASK DEPENDENCY INOUT CHAIN MASTER 8 time     = 23.856628 microseconds +/- 0.195767
+TASK DEPENDENCY INOUT CHAIN MASTER 8 overhead = 23.855849 microseconds +/- 0.195811
+TEST
+--------------------------------------------------------
+Computing TASK DEPENDENCY INOUT CHAIN MASTER 16 time using 1 innerreps and 1000 tasks
+
+      Type    Sample_size        Average            Min            Max           S.D.         CONF95       OVERHEAD     OVERHEAD_CONF95       Outliers
+TIME                   20         44.004         43.667         44.745        0.25765        0.50499         44.003             0.50504              0
+DELAYCNT: 21000
+
+TASK DEPENDENCY INOUT CHAIN MASTER 16 time     = 44.003558 microseconds +/- 0.504991
+TASK DEPENDENCY INOUT CHAIN MASTER 16 overhead = 44.002780 microseconds +/- 0.505035
+TEST
+--------------------------------------------------------
+Computing TASK DEPENDENCY INOUT CHAIN MASTER 24 time using 1 innerreps and 1000 tasks
+
+      Type    Sample_size        Average            Min            Max           S.D.         CONF95       OVERHEAD     OVERHEAD_CONF95       Outliers
+TIME                   20         69.336         68.836         69.907         0.2671        0.52353         69.335             0.52357              0
+DELAYCNT: 21000
+
+TASK DEPENDENCY INOUT CHAIN MASTER 24 time     = 69.335997 microseconds +/- 0.523525
+TASK DEPENDENCY INOUT CHAIN MASTER 24 overhead = 69.335219 microseconds +/- 0.523570
+TEST
+--------------------------------------------------------
+Computing TASK DEPENDENCY INOUT CHAIN MASTER 32 time using 1 innerreps and 1000 tasks
+
+      Type    Sample_size        Average            Min            Max           S.D.         CONF95       OVERHEAD     OVERHEAD_CONF95       Outliers
+TIME                   20         95.593         94.048          98.86         1.6376         3.2097         95.593              3.2097              0
+DELAYCNT: 21000
+
+TASK DEPENDENCY INOUT CHAIN MASTER 32 time     = 95.593441 microseconds +/- 3.209678
+TASK DEPENDENCY INOUT CHAIN MASTER 32 overhead = 95.592662 microseconds +/- 3.209722
+Application 7080465 resources: utime ~88s, stime ~3s, Rss ~2425316, inblocks ~206, outblocks ~593

@@ -1,0 +1,12 @@
+# Uncomment the following line to use OpenMP 2.0 features
+#OMPFLAG = -DOMPVER2
+# Uncomment the following line to use OpenMP 3.0 features
+OMPFLAG = -DOMPVER2 -DOMPVER3
+
+CC=mcc
+CXX=mcxx --openmp -std=c++11
+#CFLAGS = -O1 -lm  -DWITH_PAPI -I/opt/cray/papi/5.5.0.2/include
+CFLAGS = -O1 -lm -I/opt/cray/papi/5.5.0.2/include
+LDFLAGS = -O0 -lm -L/opt/cray/papi/5.5.0.2/lib -lpapi
+CPP = /usr/bin/cpp
+LIBS =

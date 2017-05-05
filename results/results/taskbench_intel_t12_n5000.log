@@ -1,0 +1,583 @@
+OMP: Info #204: KMP_AFFINITY: decoding x2APIC ids.
+OMP: Info #202: KMP_AFFINITY: Affinity capable, using global cpuid leaf 11 info
+OMP: Info #154: KMP_AFFINITY: Initial OS proc set respected: {0,1,2,3,4,5,6,7,8,9,10,11}
+OMP: Info #156: KMP_AFFINITY: 12 available OS procs
+OMP: Info #157: KMP_AFFINITY: Uniform topology
+OMP: Info #179: KMP_AFFINITY: 1 packages x 12 cores/pkg x 1 threads/core (12 total cores)
+OMP: Info #242: KMP_AFFINITY: pid 31827 thread 0 bound to OS proc set {0,1,2,3,4,5,6,7,8,9,10,11}
+OMP: Info #242: KMP_AFFINITY: pid 31827 thread 1 bound to OS proc set {0,1,2,3,4,5,6,7,8,9,10,11}
+OMP: Info #242: KMP_AFFINITY: pid 31827 thread 2 bound to OS proc set {0,1,2,3,4,5,6,7,8,9,10,11}
+OMP: Info #242: KMP_AFFINITY: pid 31827 thread 3 bound to OS proc set {0,1,2,3,4,5,6,7,8,9,10,11}
+OMP: Info #242: KMP_AFFINITY: pid 31827 thread 4 bound to OS proc set {0,1,2,3,4,5,6,7,8,9,10,11}
+OMP: Info #242: KMP_AFFINITY: pid 31827 thread 5 bound to OS proc set {0,1,2,3,4,5,6,7,8,9,10,11}
+OMP: Info #242: KMP_AFFINITY: pid 31827 thread 6 bound to OS proc set {0,1,2,3,4,5,6,7,8,9,10,11}
+OMP: Info #242: KMP_AFFINITY: pid 31827 thread 7 bound to OS proc set {0,1,2,3,4,5,6,7,8,9,10,11}
+OMP: Info #242: KMP_AFFINITY: pid 31827 thread 8 bound to OS proc set {0,1,2,3,4,5,6,7,8,9,10,11}
+OMP: Info #242: KMP_AFFINITY: pid 31827 thread 9 bound to OS proc set {0,1,2,3,4,5,6,7,8,9,10,11}
+OMP: Info #242: KMP_AFFINITY: pid 31827 thread 10 bound to OS proc set {0,1,2,3,4,5,6,7,8,9,10,11}
+OMP: Info #242: KMP_AFFINITY: pid 31827 thread 11 bound to OS proc set {0,1,2,3,4,5,6,7,8,9,10,11}
+Adding 3 counter to PAPI set
+Running OpenMP benchmark version 3.0
+Compiled with ICC-1600
+	12 thread(s)
+	20 outer repetitions
+	1000.00 test time (microseconds)
+	32 delay length (iterations) 
+	0.100000 delay time (microseconds)
+
+--------------------------------------------------------
+Computing reference time 1 time using 2048 innerreps and 5000 tasks
+
+      Type    Sample_size        Average            Min            Max           S.D.         CONF95       OVERHEAD     OVERHEAD_CONF95       Outliers
+TIME                   20     0.00016041     0.00015497     0.00016796     4.0529e-06     7.9438e-06     0.00016041          7.9438e-06              0
+PAPI_TOT_CYC           20         5.6106         5.4189         5.8277        0.13058        0.25593         5.6106             0.25593              0
+PAPI_TOT_INS           20         1.0873         1.0872         1.0875     6.1013e-05     0.00011958         1.0873          0.00011958              0
+PAPI_L2_TCM            20      0.0086232      0.0085791      0.0086833     3.0987e-05     6.0735e-05      0.0086232          6.0735e-05              0
+reference time 1 time     = 0.000160 microseconds +/- 0.000008
+TEST
+--------------------------------------------------------
+Computing TASK DEPENDENCY NEIGHBORS MASTER 1 time using 1 innerreps and 5000 tasks
+
+      Type    Sample_size        Average            Min            Max           S.D.         CONF95       OVERHEAD     OVERHEAD_CONF95       Outliers
+TIME                   20         1.4554         1.3674         1.5786        0.06397        0.12538         1.4552             0.12539              0
+PAPI_TOT_CYC           20         3752.3         3495.3         4124.1         194.26         380.75         3746.7              381.01              0
+PAPI_TOT_INS           20         1536.4         1484.1         1604.4         38.641         75.736         1535.4              75.736              0
+PAPI_L2_TCM            20         29.097         28.802         29.431        0.17012        0.33343         29.088             0.33349              0
+DELAYCNT: 105000
+
+TASK DEPENDENCY NEIGHBORS MASTER 1 time     = 1.455355 microseconds +/- 0.125380
+TASK DEPENDENCY NEIGHBORS MASTER 1 overhead = 1.455194 microseconds +/- 0.125388
+TEST
+--------------------------------------------------------
+Computing TASK DEPENDENCY NEIGHBORS MASTER 2 time using 1 innerreps and 5000 tasks
+
+      Type    Sample_size        Average            Min            Max           S.D.         CONF95       OVERHEAD     OVERHEAD_CONF95       Outliers
+TIME                   20          2.008         1.8262         2.2384         0.1343        0.26323         2.0078             0.26324              0
+PAPI_TOT_CYC           20         5189.1         4658.1         5865.4         393.03         770.34         5183.5              770.59              0
+PAPI_TOT_INS           20         2246.2         2131.2         2355.1         71.555         140.25         2245.1              140.25              0
+PAPI_L2_TCM            20         33.525         33.266         33.898        0.13963        0.27368         33.516             0.27374              0
+DELAYCNT: 105000
+
+TASK DEPENDENCY NEIGHBORS MASTER 2 time     = 2.008004 microseconds +/- 0.263228
+TASK DEPENDENCY NEIGHBORS MASTER 2 overhead = 2.007844 microseconds +/- 0.263236
+TEST
+--------------------------------------------------------
+Computing TASK DEPENDENCY NEIGHBORS MASTER 4 time using 1 innerreps and 5000 tasks
+
+      Type    Sample_size        Average            Min            Max           S.D.         CONF95       OVERHEAD     OVERHEAD_CONF95       Outliers
+TIME                   20         2.9918         2.6812         3.3582        0.21388        0.41921         2.9916             0.41922              0
+PAPI_TOT_CYC           20         7873.5           6965         8933.2         622.83         1220.8         7867.9                1221              0
+PAPI_TOT_INS           20         3158.5         3005.3         3325.8         97.072         190.26         3157.4              190.26              0
+PAPI_L2_TCM            20         37.175         36.824         37.763        0.23116        0.45308         37.166             0.45314              0
+DELAYCNT: 105000
+
+TASK DEPENDENCY NEIGHBORS MASTER 4 time     = 2.991810 microseconds +/- 0.419210
+TASK DEPENDENCY NEIGHBORS MASTER 4 overhead = 2.991649 microseconds +/- 0.419218
+TEST
+--------------------------------------------------------
+Computing TASK DEPENDENCY NEIGHBORS MASTER 8 time using 1 innerreps and 5000 tasks
+
+      Type    Sample_size        Average            Min            Max           S.D.         CONF95       OVERHEAD     OVERHEAD_CONF95       Outliers
+TIME                   20         4.9896          4.525         5.4974        0.31376        0.61497         4.9895             0.61498              0
+PAPI_TOT_CYC           20          13305          11957          14782         912.46         1788.4          13299              1788.7              0
+PAPI_TOT_INS           20           5034         4805.7         5252.7         140.47         275.32         5032.9              275.32              0
+PAPI_L2_TCM            20         44.344         41.722         49.817         2.8799         5.6447         44.335              5.6448              0
+DELAYCNT: 105000
+
+TASK DEPENDENCY NEIGHBORS MASTER 8 time     = 4.989622 microseconds +/- 0.614969
+TASK DEPENDENCY NEIGHBORS MASTER 8 overhead = 4.989461 microseconds +/- 0.614977
+TEST
+--------------------------------------------------------
+Computing TASK DEPENDENCY NEIGHBORS MASTER 16 time using 1 innerreps and 5000 tasks
+
+      Type    Sample_size        Average            Min            Max           S.D.         CONF95       OVERHEAD     OVERHEAD_CONF95       Outliers
+TIME                   20         9.8004         8.8364         11.177        0.71022          1.392         9.8002               1.392              0
+PAPI_TOT_CYC           20          26520          23787          30487         2038.4         3995.2          26514              3995.4              0
+PAPI_TOT_INS           20         9224.6         8861.2         9586.1         227.49         445.89         9223.6              445.89              0
+PAPI_L2_TCM            20         91.924         70.083         140.91         22.319         43.746         91.916              43.746              0
+DELAYCNT: 105000
+
+TASK DEPENDENCY NEIGHBORS MASTER 16 time     = 9.800370 microseconds +/- 1.392026
+TASK DEPENDENCY NEIGHBORS MASTER 16 overhead = 9.800209 microseconds +/- 1.392034
+TEST
+--------------------------------------------------------
+Computing TASK DEPENDENCY NEIGHBORS MASTER 24 time using 1 innerreps and 5000 tasks
+
+      Type    Sample_size        Average            Min            Max           S.D.         CONF95       OVERHEAD     OVERHEAD_CONF95       Outliers
+TIME                   20          17.76         16.339         19.383        0.99363         1.9475          17.76              1.9475              0
+PAPI_TOT_CYC           20          48764          44650          53481         2876.7         5638.3          48758              5638.6              0
+PAPI_TOT_INS           20          14193          13686          14704         316.79          620.9          14192               620.9              0
+PAPI_L2_TCM            20         281.59         237.55         340.57         39.482         77.385         281.58              77.385              0
+DELAYCNT: 105000
+
+TASK DEPENDENCY NEIGHBORS MASTER 24 time     = 17.760291 microseconds +/- 1.947521
+TASK DEPENDENCY NEIGHBORS MASTER 24 overhead = 17.760131 microseconds +/- 1.947529
+TEST
+--------------------------------------------------------
+Computing TASK DEPENDENCY NEIGHBORS MASTER 32 time using 1 innerreps and 5000 tasks
+
+      Type    Sample_size        Average            Min            Max           S.D.         CONF95       OVERHEAD     OVERHEAD_CONF95       Outliers
+TIME                   20         27.454         25.159         29.366         1.2637         2.4769         27.453               2.477              0
+PAPI_TOT_CYC           20          76092          69466          81630         3653.5           7161          76087              7161.2              0
+PAPI_TOT_INS           20          20148          19491          20804         407.79         799.27          20147              799.27              0
+PAPI_L2_TCM            20         511.24         427.63         560.45          38.85         76.147         511.23              76.147              0
+DELAYCNT: 105000
+
+TASK DEPENDENCY NEIGHBORS MASTER 32 time     = 27.453504 microseconds +/- 2.476949
+TASK DEPENDENCY NEIGHBORS MASTER 32 overhead = 27.453343 microseconds +/- 2.476957
+TEST
+--------------------------------------------------------
+Computing TASK DEPENDENCY IN LINKED MASTER 1 time using 1 innerreps and 5000 tasks
+
+      Type    Sample_size        Average            Min            Max           S.D.         CONF95       OVERHEAD     OVERHEAD_CONF95       Outliers
+TIME                   20         8.6235         7.6464         9.9312           0.69         1.3524         8.6233              1.3524              0
+PAPI_TOT_CYC           20          24071          21239          27867         2001.1         3922.2          24065              3922.5              0
+PAPI_TOT_INS           20         4243.4         4072.3         4427.2         108.16            212         4242.4                 212              0
+PAPI_L2_TCM            20          193.8         145.59         264.59         35.932         70.427         193.79              70.427              0
+DELAYCNT: 105000
+
+TASK DEPENDENCY IN LINKED MASTER 1 time     = 8.623478 microseconds +/- 1.352400
+TASK DEPENDENCY IN LINKED MASTER 1 overhead = 8.623318 microseconds +/- 1.352408
+TEST
+--------------------------------------------------------
+Computing TASK DEPENDENCY IN LINKED MASTER 2 time using 1 innerreps and 5000 tasks
+
+      Type    Sample_size        Average            Min            Max           S.D.         CONF95       OVERHEAD     OVERHEAD_CONF95       Outliers
+TIME                   20         20.977         19.815         22.118        0.72614         1.4232         20.976              1.4232              0
+PAPI_TOT_CYC           20          58956          55584          62263         2105.9         4127.5          58950              4127.7              0
+PAPI_TOT_INS           20         8640.9         8291.1         8996.5         214.24         419.92         8639.8              419.92              0
+PAPI_L2_TCM            20         587.62         547.15         623.78         25.595         50.166         587.62              50.166              0
+DELAYCNT: 105000
+
+TASK DEPENDENCY IN LINKED MASTER 2 time     = 20.976627 microseconds +/- 1.423242
+TASK DEPENDENCY IN LINKED MASTER 2 overhead = 20.976466 microseconds +/- 1.423250
+TEST
+--------------------------------------------------------
+Computing TASK DEPENDENCY IN LINKED MASTER 4 time using 1 innerreps and 5000 tasks
+
+      Type    Sample_size        Average            Min            Max           S.D.         CONF95       OVERHEAD     OVERHEAD_CONF95       Outliers
+TIME                   20         47.281         44.334         50.415         2.0446         4.0074          47.28              4.0074              0
+PAPI_TOT_CYC           20     1.3335e+05      1.248e+05     1.4243e+05           5932          11627     1.3335e+05               11627              0
+PAPI_TOT_INS           20          18365          17688          19059         425.85         834.66          18364              834.66              0
+PAPI_L2_TCM            20         1384.3         1255.1         1537.4         100.58         197.14         1384.3              197.14              0
+DELAYCNT: 105000
+
+TASK DEPENDENCY IN LINKED MASTER 4 time     = 47.280650 microseconds +/- 4.007350
+TASK DEPENDENCY IN LINKED MASTER 4 overhead = 47.280490 microseconds +/- 4.007358
+TEST
+--------------------------------------------------------
+Computing TASK DEPENDENCY IN LINKED MASTER 8 time using 1 innerreps and 5000 tasks
+
+      Type    Sample_size        Average            Min            Max           S.D.         CONF95       OVERHEAD     OVERHEAD_CONF95       Outliers
+TIME                   20         108.65         102.49         115.35         4.4041          8.632         108.65               8.632              0
+PAPI_TOT_CYC           20      3.076e+05     2.8975e+05     3.2699e+05          12771          25030     3.0759e+05               25031              0
+PAPI_TOT_INS           20          39798          38425          41170         852.53           1671          39797                1671              0
+PAPI_L2_TCM            20         3461.3           3141         3860.9         266.45         522.23         3461.3              522.23              0
+DELAYCNT: 105000
+
+TASK DEPENDENCY IN LINKED MASTER 8 time     = 108.653696 microseconds +/- 8.631962
+TASK DEPENDENCY IN LINKED MASTER 8 overhead = 108.653535 microseconds +/- 8.631970
+TEST
+--------------------------------------------------------
+Computing TASK DEPENDENCY IN LINKED MASTER 16 time using 1 innerreps and 5000 tasks
+
+      Type    Sample_size        Average            Min            Max           S.D.         CONF95       OVERHEAD     OVERHEAD_CONF95       Outliers
+TIME                   20         246.53         235.39         259.71         7.2982         14.305         246.53              14.305              0
+PAPI_TOT_CYC           20     6.9992e+05     6.6766e+05     7.3809e+05          21136          41428     6.9992e+05               41428              0
+PAPI_TOT_INS           20          87216          84483          89941         1704.1         3340.1          87214              3340.1              0
+PAPI_L2_TCM            20         8373.5         7834.8           8991         351.09         688.14         8373.5              688.14              0
+DELAYCNT: 105000
+
+TASK DEPENDENCY IN LINKED MASTER 16 time     = 246.527579 microseconds +/- 14.304558
+TASK DEPENDENCY IN LINKED MASTER 16 overhead = 246.527418 microseconds +/- 14.304566
+TEST
+--------------------------------------------------------
+Computing TASK DEPENDENCY IN LINKED MASTER 24 time using 1 innerreps and 5000 tasks
+
+      Type    Sample_size        Average            Min            Max           S.D.         CONF95       OVERHEAD     OVERHEAD_CONF95       Outliers
+TIME                   20         417.03         397.29         434.54         11.663         22.859         417.03              22.859              0
+PAPI_TOT_CYC           20     1.1867e+06     1.1295e+06     1.2376e+06          33834          66314     1.1867e+06               66314              0
+PAPI_TOT_INS           20     1.4222e+05     1.3811e+05     1.4634e+05         2558.9         5015.5     1.4221e+05              5015.5              0
+PAPI_L2_TCM            20          14880          13808          15646         594.16         1164.6          14880              1164.6              0
+DELAYCNT: 105000
+
+TASK DEPENDENCY IN LINKED MASTER 24 time     = 417.026455 microseconds +/- 22.859427
+TASK DEPENDENCY IN LINKED MASTER 24 overhead = 417.026295 microseconds +/- 22.859435
+TEST
+--------------------------------------------------------
+Computing TASK DEPENDENCY IN LINKED MASTER 32 time using 1 innerreps and 5000 tasks
+
+      Type    Sample_size        Average            Min            Max           S.D.         CONF95       OVERHEAD     OVERHEAD_CONF95       Outliers
+TIME                   20         615.17         593.19         642.64         14.369         28.163         615.17              28.163              0
+PAPI_TOT_CYC           20     1.7536e+06     1.6899e+06     1.8332e+06          41686          81704     1.7536e+06               81705              0
+PAPI_TOT_INS           20     2.0531e+05     1.9983e+05     2.1079e+05         3409.5         6682.7     2.0531e+05              6682.7              0
+PAPI_L2_TCM            20          22382          21372          24351         730.06         1430.9          22382              1430.9              0
+DELAYCNT: 105000
+
+TASK DEPENDENCY IN LINKED MASTER 32 time     = 615.173881 microseconds +/- 28.163043
+TASK DEPENDENCY IN LINKED MASTER 32 overhead = 615.173721 microseconds +/- 28.163051
+TEST
+--------------------------------------------------------
+Computing TASK DEPENDENCY OUT LINKED MASTER 1 time using 1 innerreps and 5000 tasks
+
+      Type    Sample_size        Average            Min            Max           S.D.         CONF95       OVERHEAD     OVERHEAD_CONF95       Outliers
+TIME                   20         20.736         19.945         21.436        0.45815        0.89797         20.736             0.89798              0
+PAPI_TOT_CYC           20          59183          56867          61220         1333.3         2613.2          59178              2613.5              0
+PAPI_TOT_INS           20           6890           6711           7071         109.02         213.67         6888.9              213.67              0
+PAPI_L2_TCM            20         813.22         767.27         846.59         25.171         49.335         813.21              49.335              0
+DELAYCNT: 105000
+
+TASK DEPENDENCY OUT LINKED MASTER 1 time     = 20.736258 microseconds +/- 0.897968
+TASK DEPENDENCY OUT LINKED MASTER 1 overhead = 20.736098 microseconds +/- 0.897976
+TEST
+--------------------------------------------------------
+Computing TASK DEPENDENCY OUT LINKED MASTER 2 time using 1 innerreps and 5000 tasks
+
+      Type    Sample_size        Average            Min            Max           S.D.         CONF95       OVERHEAD     OVERHEAD_CONF95       Outliers
+TIME                   20         33.038         31.937           34.2        0.64477         1.2638         33.037              1.2638              0
+PAPI_TOT_CYC           20          94377          91197          97742         1865.8         3656.9          94371              3657.1              0
+PAPI_TOT_INS           20          10662          10399          10932          162.4          318.3          10661               318.3              0
+PAPI_L2_TCM            20         1317.2         1264.1         1370.4          30.68         60.133         1317.2              60.133              0
+DELAYCNT: 105000
+
+TASK DEPENDENCY OUT LINKED MASTER 2 time     = 33.037634 microseconds +/- 1.263758
+TASK DEPENDENCY OUT LINKED MASTER 2 overhead = 33.037473 microseconds +/- 1.263766
+TEST
+--------------------------------------------------------
+Computing TASK DEPENDENCY OUT LINKED MASTER 4 time using 1 innerreps and 5000 tasks
+
+      Type    Sample_size        Average            Min            Max           S.D.         CONF95       OVERHEAD     OVERHEAD_CONF95       Outliers
+TIME                   20         59.158          56.89         61.388         1.4256         2.7942         59.158              2.7942              0
+PAPI_TOT_CYC           20     1.6915e+05     1.6258e+05     1.7557e+05         4124.1         8083.2     1.6914e+05              8083.4              0
+PAPI_TOT_INS           20          18505          18098          18937         266.13         521.62          18504              521.62              0
+PAPI_L2_TCM            20         2449.2         2277.6         2622.2         111.81         219.15         2449.2              219.15              0
+DELAYCNT: 105000
+
+TASK DEPENDENCY OUT LINKED MASTER 4 time     = 59.158416 microseconds +/- 2.794197
+TASK DEPENDENCY OUT LINKED MASTER 4 overhead = 59.158255 microseconds +/- 2.794205
+TEST
+--------------------------------------------------------
+Computing TASK DEPENDENCY OUT LINKED MASTER 8 time using 1 innerreps and 5000 tasks
+
+      Type    Sample_size        Average            Min            Max           S.D.         CONF95       OVERHEAD     OVERHEAD_CONF95       Outliers
+TIME                   20         116.24         112.12         120.78         2.7727         5.4345         116.24              5.4345              0
+PAPI_TOT_CYC           20      3.327e+05     3.2079e+05     3.4586e+05         8030.9          15741     3.3269e+05               15741              0
+PAPI_TOT_INS           20          35237          34440          36014         482.85         946.39          35236              946.39              0
+PAPI_L2_TCM            20         5107.1         4835.7         5479.3         210.59         412.76         5107.1              412.76              0
+DELAYCNT: 105000
+
+TASK DEPENDENCY OUT LINKED MASTER 8 time     = 116.239874 microseconds +/- 5.434541
+TASK DEPENDENCY OUT LINKED MASTER 8 overhead = 116.239714 microseconds +/- 5.434549
+TEST
+--------------------------------------------------------
+Computing TASK DEPENDENCY OUT LINKED MASTER 16 time using 1 innerreps and 5000 tasks
+
+      Type    Sample_size        Average            Min            Max           S.D.         CONF95       OVERHEAD     OVERHEAD_CONF95       Outliers
+TIME                   20         242.03         233.93         251.35         5.4738         10.729         242.03              10.729              0
+PAPI_TOT_CYC           20     6.9356e+05     6.7006e+05     7.2057e+05          15865          31096     6.9355e+05               31097              0
+PAPI_TOT_INS           20          71583          70134          73031         904.89         1773.6          71582              1773.6              0
+PAPI_L2_TCM            20          11281          10649          12086         443.85         869.94          11281              869.94              0
+DELAYCNT: 105000
+
+TASK DEPENDENCY OUT LINKED MASTER 16 time     = 242.034440 microseconds +/- 10.728589
+TASK DEPENDENCY OUT LINKED MASTER 16 overhead = 242.034280 microseconds +/- 10.728597
+TEST
+--------------------------------------------------------
+Computing TASK DEPENDENCY OUT LINKED MASTER 24 time using 1 innerreps and 5000 tasks
+
+      Type    Sample_size        Average            Min            Max           S.D.         CONF95       OVERHEAD     OVERHEAD_CONF95       Outliers
+TIME                   20         392.36          378.7         407.26          9.361         18.348         392.36              18.348              0
+PAPI_TOT_CYC           20     1.1255e+06      1.086e+06     1.1687e+06          27098          53113     1.1255e+06               53113              0
+PAPI_TOT_INS           20     1.1248e+05     1.1033e+05     1.1462e+05         1333.1         2612.8     1.1248e+05              2612.8              0
+PAPI_L2_TCM            20          19268          18262          20640         796.35         1560.9          19268              1560.9              0
+DELAYCNT: 105000
+
+TASK DEPENDENCY OUT LINKED MASTER 24 time     = 392.356865 microseconds +/- 18.347638
+TASK DEPENDENCY OUT LINKED MASTER 24 overhead = 392.356705 microseconds +/- 18.347646
+TEST
+--------------------------------------------------------
+Computing TASK DEPENDENCY OUT LINKED MASTER 32 time using 1 innerreps and 5000 tasks
+
+      Type    Sample_size        Average            Min            Max           S.D.         CONF95       OVERHEAD     OVERHEAD_CONF95       Outliers
+TIME                   20         581.09         565.17         594.81         9.1343         17.903         581.09              17.903              0
+PAPI_TOT_CYC           20     1.6687e+06     1.6225e+06     1.7085e+06          26517          51974     1.6687e+06               51974              0
+PAPI_TOT_INS           20     1.5846e+05     1.5567e+05     1.6128e+05         1755.3         3440.5     1.5846e+05              3440.5              0
+PAPI_L2_TCM            20          31248          29790          32368         735.44         1441.5          31248              1441.5              0
+DELAYCNT: 105000
+
+TASK DEPENDENCY OUT LINKED MASTER 32 time     = 581.090617 microseconds +/- 17.903179
+TASK DEPENDENCY OUT LINKED MASTER 32 overhead = 581.090457 microseconds +/- 17.903187
+TEST
+--------------------------------------------------------
+Computing TASK DEPENDENCY INOUT LINKED MASTER 1 time using 1 innerreps and 5000 tasks
+
+      Type    Sample_size        Average            Min            Max           S.D.         CONF95       OVERHEAD     OVERHEAD_CONF95       Outliers
+TIME                   20         35.639         34.543         36.722         0.7033         1.3785         35.639              1.3785              0
+PAPI_TOT_CYC           20     1.0236e+05          99186      1.055e+05         2039.8         3997.9     1.0235e+05              3998.2              0
+PAPI_TOT_INS           20           9537         9344.3         9702.7         108.22         212.11         9535.9              212.11              0
+PAPI_L2_TCM            20         1998.5         1899.3           2108         73.989         145.02         1998.5              145.02              0
+DELAYCNT: 105000
+
+TASK DEPENDENCY INOUT LINKED MASTER 1 time     = 35.639181 microseconds +/- 1.378474
+TASK DEPENDENCY INOUT LINKED MASTER 1 overhead = 35.639021 microseconds +/- 1.378482
+TEST
+--------------------------------------------------------
+Computing TASK DEPENDENCY INOUT LINKED MASTER 2 time using 1 innerreps and 5000 tasks
+
+      Type    Sample_size        Average            Min            Max           S.D.         CONF95       OVERHEAD     OVERHEAD_CONF95       Outliers
+TIME                   20         56.931         55.303         58.632         1.0355         2.0295         56.931              2.0295              0
+PAPI_TOT_CYC           20      1.636e+05     1.5887e+05     1.6853e+05         3003.7         5887.3     1.6359e+05              5887.5              0
+PAPI_TOT_INS           20          14634          14379          14924         163.33         320.12          14633              320.12              0
+PAPI_L2_TCM            20         3359.2         3200.9         3512.8         100.62         197.22         3359.2              197.22              0
+DELAYCNT: 105000
+
+TASK DEPENDENCY INOUT LINKED MASTER 2 time     = 56.931150 microseconds +/- 2.029504
+TASK DEPENDENCY INOUT LINKED MASTER 2 overhead = 56.930990 microseconds +/- 2.029512
+TEST
+--------------------------------------------------------
+Computing TASK DEPENDENCY INOUT LINKED MASTER 4 time using 1 innerreps and 5000 tasks
+
+      Type    Sample_size        Average            Min            Max           S.D.         CONF95       OVERHEAD     OVERHEAD_CONF95       Outliers
+TIME                   20         101.02         97.749         103.45          1.784         3.4967         101.02              3.4967              0
+PAPI_TOT_CYC           20     2.9044e+05     2.8095e+05     2.9749e+05         5166.9          10127     2.9043e+05               10127              0
+PAPI_TOT_INS           20          25120          24701          25535          265.2         519.78          25119              519.78              0
+PAPI_L2_TCM            20         6222.8         5862.1         6456.8         185.38         363.34         6222.8              363.34              0
+DELAYCNT: 105000
+
+TASK DEPENDENCY INOUT LINKED MASTER 4 time     = 101.018143 microseconds +/- 3.496702
+TASK DEPENDENCY INOUT LINKED MASTER 4 overhead = 101.017982 microseconds +/- 3.496710
+TEST
+--------------------------------------------------------
+Computing TASK DEPENDENCY INOUT LINKED MASTER 8 time using 1 innerreps and 5000 tasks
+
+      Type    Sample_size        Average            Min            Max           S.D.         CONF95       OVERHEAD     OVERHEAD_CONF95       Outliers
+TIME                   20         191.94         188.31         196.74         2.5959          5.088         191.94               5.088              0
+PAPI_TOT_CYC           20     5.5211e+05     5.4158e+05     5.6601e+05         7531.5          14762     5.5211e+05               14762              0
+PAPI_TOT_INS           20          47150          46420          47914         479.21         939.25          47149              939.26              0
+PAPI_L2_TCM            20          12015          11731          12450         215.12         421.64          12015              421.64              0
+DELAYCNT: 105000
+
+TASK DEPENDENCY INOUT LINKED MASTER 8 time     = 191.937435 microseconds +/- 5.087979
+TASK DEPENDENCY INOUT LINKED MASTER 8 overhead = 191.937274 microseconds +/- 5.087987
+TEST
+--------------------------------------------------------
+Computing TASK DEPENDENCY INOUT LINKED MASTER 16 time using 1 innerreps and 5000 tasks
+
+      Type    Sample_size        Average            Min            Max           S.D.         CONF95       OVERHEAD     OVERHEAD_CONF95       Outliers
+TIME                   20         388.58         377.84         397.42         6.1665         12.086         388.58              12.086              0
+PAPI_TOT_CYC           20     1.1183e+06     1.0873e+06     1.1439e+06          17854          34994     1.1183e+06               34994              0
+PAPI_TOT_INS           20          94084          92621          95563          908.5         1780.7          94083              1780.7              0
+PAPI_L2_TCM            20          24850          23926          25537         531.95         1042.6          24850              1042.6              0
+DELAYCNT: 105000
+
+TASK DEPENDENCY INOUT LINKED MASTER 16 time     = 388.579018 microseconds +/- 12.086276
+TASK DEPENDENCY INOUT LINKED MASTER 16 overhead = 388.578858 microseconds +/- 12.086284
+TEST
+--------------------------------------------------------
+Computing TASK DEPENDENCY INOUT LINKED MASTER 24 time using 1 innerreps and 5000 tasks
+
+      Type    Sample_size        Average            Min            Max           S.D.         CONF95       OVERHEAD     OVERHEAD_CONF95       Outliers
+TIME                   20         608.01          594.7         621.26         8.6662         16.986         608.01              16.986              0
+PAPI_TOT_CYC           20     1.7506e+06      1.712e+06     1.7891e+06          25151          49297     1.7506e+06               49297              0
+PAPI_TOT_INS           20     1.4557e+05     1.4344e+05     1.4772e+05         1333.8         2614.3     1.4557e+05              2614.3              0
+PAPI_L2_TCM            20          39270          38129          40402         756.35         1482.4          39270              1482.4              0
+DELAYCNT: 105000
+
+TASK DEPENDENCY INOUT LINKED MASTER 24 time     = 608.012090 microseconds +/- 16.985759
+TASK DEPENDENCY INOUT LINKED MASTER 24 overhead = 608.011929 microseconds +/- 16.985767
+TEST
+--------------------------------------------------------
+Computing TASK DEPENDENCY INOUT LINKED MASTER 32 time using 1 innerreps and 5000 tasks
+
+      Type    Sample_size        Average            Min            Max           S.D.         CONF95       OVERHEAD     OVERHEAD_CONF95       Outliers
+TIME                   20         856.42         836.33          873.6          11.24          22.03         856.42               22.03              0
+PAPI_TOT_CYC           20     2.4669e+06     2.4086e+06     2.5167e+06          32557          63811     2.4669e+06               63811              0
+PAPI_TOT_INS           20     2.0214e+05      1.993e+05     2.0498e+05         1760.7           3451     2.0213e+05                3451              0
+PAPI_L2_TCM            20          56403          54453          57957         1053.8         2065.5          56403              2065.5              0
+DELAYCNT: 105000
+
+TASK DEPENDENCY INOUT LINKED MASTER 32 time     = 856.416097 microseconds +/- 22.029619
+TASK DEPENDENCY INOUT LINKED MASTER 32 overhead = 856.415936 microseconds +/- 22.029627
+TEST
+--------------------------------------------------------
+Computing TASK DEPENDENCY OUT CHAIN MASTER 1 time using 1 innerreps and 5000 tasks
+
+      Type    Sample_size        Average            Min            Max           S.D.         CONF95       OVERHEAD     OVERHEAD_CONF95       Outliers
+TIME                   20          1.073         1.0586         1.0936       0.011648       0.022831         1.0728            0.022839              0
+PAPI_TOT_CYC           20         3088.5         3044.1         3151.7         35.423         69.429         3082.9              69.685              0
+PAPI_TOT_INS           20         806.73         728.01         889.42         48.792         95.633         805.64              95.633              0
+PAPI_L2_TCM            20         60.567         57.251         64.921         2.4367         4.7759         60.558               4.776              0
+DELAYCNT: 105000
+
+TASK DEPENDENCY OUT CHAIN MASTER 1 time     = 1.072972 microseconds +/- 0.022831
+TASK DEPENDENCY OUT CHAIN MASTER 1 overhead = 1.072811 microseconds +/- 0.022839
+TEST
+--------------------------------------------------------
+Computing TASK DEPENDENCY OUT CHAIN MASTER 2 time using 1 innerreps and 5000 tasks
+
+      Type    Sample_size        Average            Min            Max           S.D.         CONF95       OVERHEAD     OVERHEAD_CONF95       Outliers
+TIME                   20         1.1167         1.1126         1.1232      0.0031825      0.0062377         1.1165           0.0062457              0
+PAPI_TOT_CYC           20         3212.3         3200.5         3231.9         9.0149         17.669         3206.7              17.925              0
+PAPI_TOT_INS           20         1069.5         1016.6         1130.4         33.607          65.87         1068.4               65.87              0
+PAPI_L2_TCM            20         56.913         55.515         58.394        0.92724         1.8174         56.904              1.8174              0
+DELAYCNT: 105000
+
+TASK DEPENDENCY OUT CHAIN MASTER 2 time     = 1.116672 microseconds +/- 0.006238
+TASK DEPENDENCY OUT CHAIN MASTER 2 overhead = 1.116511 microseconds +/- 0.006246
+TEST
+--------------------------------------------------------
+Computing TASK DEPENDENCY OUT CHAIN MASTER 4 time using 1 innerreps and 5000 tasks
+
+      Type    Sample_size        Average            Min            Max           S.D.         CONF95       OVERHEAD     OVERHEAD_CONF95       Outliers
+TIME                   20         1.1972         1.1882          1.206      0.0040957      0.0080277         1.1971           0.0080356              0
+PAPI_TOT_CYC           20         3447.6         3422.8         3471.3         11.863         23.252           3442              23.508              0
+PAPI_TOT_INS           20         1446.7         1413.5         1477.5         18.366         35.997         1445.6              35.997              0
+PAPI_L2_TCM            20         54.833         53.794         55.966        0.68271         1.3381         54.825              1.3382              0
+DELAYCNT: 105000
+
+TASK DEPENDENCY OUT CHAIN MASTER 4 time     = 1.197231 microseconds +/- 0.008028
+TASK DEPENDENCY OUT CHAIN MASTER 4 overhead = 1.197070 microseconds +/- 0.008036
+TEST
+--------------------------------------------------------
+Computing TASK DEPENDENCY OUT CHAIN MASTER 8 time using 1 innerreps and 5000 tasks
+
+      Type    Sample_size        Average            Min            Max           S.D.         CONF95       OVERHEAD     OVERHEAD_CONF95       Outliers
+TIME                   20         1.3987         1.3906         1.4058      0.0044496      0.0087211         1.3986           0.0087291              0
+PAPI_TOT_CYC           20         4037.5         4015.7         4057.9         12.885         25.255         4031.9              25.511              0
+PAPI_TOT_INS           20         2214.5         2197.7         2225.9         7.6343         14.963         2213.4              14.963              0
+PAPI_L2_TCM            20         53.761         52.781         54.496        0.46961        0.92043         53.752             0.92049              0
+DELAYCNT: 105000
+
+TASK DEPENDENCY OUT CHAIN MASTER 8 time     = 1.398735 microseconds +/- 0.008721
+TASK DEPENDENCY OUT CHAIN MASTER 8 overhead = 1.398575 microseconds +/- 0.008729
+TEST
+--------------------------------------------------------
+Computing TASK DEPENDENCY OUT CHAIN MASTER 16 time using 1 innerreps and 5000 tasks
+
+      Type    Sample_size        Average            Min            Max           S.D.         CONF95       OVERHEAD     OVERHEAD_CONF95       Outliers
+TIME                   20         1.8777         1.8716         1.8856      0.0040395      0.0079175         1.8776           0.0079254              0
+PAPI_TOT_CYC           20         5437.9         5419.4         5462.4         11.914         23.351         5432.3              23.606              0
+PAPI_TOT_INS           20         4007.1         3997.9         4018.4         5.5389         10.856         4006.1              10.856              0
+PAPI_L2_TCM            20         49.365         49.109         49.642        0.15114        0.29623         49.357             0.29629              0
+DELAYCNT: 105000
+
+TASK DEPENDENCY OUT CHAIN MASTER 16 time     = 1.877737 microseconds +/- 0.007917
+TASK DEPENDENCY OUT CHAIN MASTER 16 overhead = 1.877577 microseconds +/- 0.007925
+TEST
+--------------------------------------------------------
+Computing TASK DEPENDENCY OUT CHAIN MASTER 24 time using 1 innerreps and 5000 tasks
+
+      Type    Sample_size        Average            Min            Max           S.D.         CONF95       OVERHEAD     OVERHEAD_CONF95       Outliers
+TIME                   20          2.462         2.0654         2.6672        0.13859        0.27164         2.4618             0.27164              0
+PAPI_TOT_CYC           20         7134.1         5984.5         7729.2         401.74         787.41         7128.5              787.67              0
+PAPI_TOT_INS           20           5407           4569         5828.7         291.91         572.14         5405.9              572.14              0
+PAPI_L2_TCM            20         57.273         39.446         66.962         6.3173         12.382         57.264              12.382              0
+DELAYCNT: 105000
+
+TASK DEPENDENCY OUT CHAIN MASTER 24 time     = 2.462001 microseconds +/- 0.271636
+TASK DEPENDENCY OUT CHAIN MASTER 24 overhead = 2.461840 microseconds +/- 0.271644
+TEST
+--------------------------------------------------------
+Computing TASK DEPENDENCY OUT CHAIN MASTER 32 time using 1 innerreps and 5000 tasks
+
+      Type    Sample_size        Average            Min            Max           S.D.         CONF95       OVERHEAD     OVERHEAD_CONF95       Outliers
+TIME                   20         2.1944         2.1484          2.507       0.080866         0.1585         2.1942             0.15851              1
+PAPI_TOT_CYC           20         6357.6         6224.5         7263.5         234.39         459.41           6352              459.66              1
+PAPI_TOT_INS           20         6165.4         6124.4         6590.9         108.66         212.97         6164.3              212.97              1
+PAPI_L2_TCM            20         34.553         33.135         47.685         3.3461         6.5584         34.544              6.5585              1
+DELAYCNT: 105000
+
+TASK DEPENDENCY OUT CHAIN MASTER 32 time     = 2.194364 microseconds +/- 0.158498
+TASK DEPENDENCY OUT CHAIN MASTER 32 overhead = 2.194204 microseconds +/- 0.158506
+TEST
+--------------------------------------------------------
+Computing TASK DEPENDENCY INOUT CHAIN MASTER 1 time using 1 innerreps and 5000 tasks
+
+      Type    Sample_size        Average            Min            Max           S.D.         CONF95       OVERHEAD     OVERHEAD_CONF95       Outliers
+TIME                   20         1.0694         1.0612          1.076      0.0037098      0.0072712         1.0692           0.0072791              0
+PAPI_TOT_CYC           20         3066.1         3045.4         3080.3         9.3799         18.385         3060.5               18.64              0
+PAPI_TOT_INS           20         1115.1         1067.8         1153.4         25.839         50.645           1114              50.645              0
+PAPI_L2_TCM            20         49.957         48.646         51.464        0.80465         1.5771         49.949              1.5772              0
+DELAYCNT: 105000
+
+TASK DEPENDENCY INOUT CHAIN MASTER 1 time     = 1.069405 microseconds +/- 0.007271
+TASK DEPENDENCY INOUT CHAIN MASTER 1 overhead = 1.069245 microseconds +/- 0.007279
+TEST
+--------------------------------------------------------
+Computing TASK DEPENDENCY INOUT CHAIN MASTER 2 time using 1 innerreps and 5000 tasks
+
+      Type    Sample_size        Average            Min            Max           S.D.         CONF95       OVERHEAD     OVERHEAD_CONF95       Outliers
+TIME                   20         1.0937         1.0368         1.1244       0.036959       0.072439         1.0935            0.072447              0
+PAPI_TOT_CYC           20         3146.6         2996.2         3224.8         96.231         188.61           3141              188.87              0
+PAPI_TOT_INS           20         1247.5         1221.7         1276.9         14.119         27.672         1246.4              27.672              0
+PAPI_L2_TCM            20         49.502         45.801         51.786         2.4355         4.7735         49.493              4.7736              0
+DELAYCNT: 105000
+
+TASK DEPENDENCY INOUT CHAIN MASTER 2 time     = 1.093700 microseconds +/- 0.072439
+TASK DEPENDENCY INOUT CHAIN MASTER 2 overhead = 1.093540 microseconds +/- 0.072447
+TEST
+--------------------------------------------------------
+Computing TASK DEPENDENCY INOUT CHAIN MASTER 4 time using 1 innerreps and 5000 tasks
+
+      Type    Sample_size        Average            Min            Max           S.D.         CONF95       OVERHEAD     OVERHEAD_CONF95       Outliers
+TIME                   20         1.1176         1.1116         1.1266      0.0042879      0.0084044         1.1175           0.0084123              0
+PAPI_TOT_CYC           20           3231         3214.1         3257.2          12.14         23.794         3225.4               24.05              0
+PAPI_TOT_INS           20           1526         1510.6         1536.7         8.6743         17.002         1524.9              17.002              0
+PAPI_L2_TCM            20         46.578         45.662         47.413        0.46581        0.91298          46.57             0.91304              0
+DELAYCNT: 105000
+
+TASK DEPENDENCY INOUT CHAIN MASTER 4 time     = 1.117635 microseconds +/- 0.008404
+TASK DEPENDENCY INOUT CHAIN MASTER 4 overhead = 1.117474 microseconds +/- 0.008412
+TEST
+--------------------------------------------------------
+Computing TASK DEPENDENCY INOUT CHAIN MASTER 8 time using 1 innerreps and 5000 tasks
+
+      Type    Sample_size        Average            Min            Max           S.D.         CONF95       OVERHEAD     OVERHEAD_CONF95       Outliers
+TIME                   20         1.3537         1.2934          1.393       0.038675       0.075804         1.3535            0.075811              0
+PAPI_TOT_CYC           20         3909.4         3742.3         4015.4         106.38          208.5         3903.8              208.76              0
+PAPI_TOT_INS           20         2254.2         2224.5         2268.2          15.51         30.399         2253.1              30.399              0
+PAPI_L2_TCM            20         47.763          44.25           49.8         2.3106         4.5288         47.754              4.5289              0
+DELAYCNT: 105000
+
+TASK DEPENDENCY INOUT CHAIN MASTER 8 time     = 1.353700 microseconds +/- 0.075804
+TASK DEPENDENCY INOUT CHAIN MASTER 8 overhead = 1.353540 microseconds +/- 0.075811
+TEST
+--------------------------------------------------------
+Computing TASK DEPENDENCY INOUT CHAIN MASTER 16 time using 1 innerreps and 5000 tasks
+
+      Type    Sample_size        Average            Min            Max           S.D.         CONF95       OVERHEAD     OVERHEAD_CONF95       Outliers
+TIME                   20         1.8763         1.8654          1.882      0.0038465      0.0075391         1.8761           0.0075471              0
+PAPI_TOT_CYC           20         5433.9         5400.9         5450.8         11.607          22.75         5428.3              23.006              0
+PAPI_TOT_INS           20         3999.1         3991.6         4009.6         4.5668         8.9509           3998               8.951              0
+PAPI_L2_TCM            20         47.991         47.784         48.253        0.12376        0.24256         47.983             0.24262              0
+DELAYCNT: 105000
+
+TASK DEPENDENCY INOUT CHAIN MASTER 16 time     = 1.876256 microseconds +/- 0.007539
+TASK DEPENDENCY INOUT CHAIN MASTER 16 overhead = 1.876096 microseconds +/- 0.007547
+TEST
+--------------------------------------------------------
+Computing TASK DEPENDENCY INOUT CHAIN MASTER 24 time using 1 innerreps and 5000 tasks
+
+      Type    Sample_size        Average            Min            Max           S.D.         CONF95       OVERHEAD     OVERHEAD_CONF95       Outliers
+TIME                   20         2.5543          2.405         2.6532        0.06083        0.11923         2.5541             0.11923              0
+PAPI_TOT_CYC           20         7401.5         6969.4         7688.6         176.06         345.08         7395.9              345.34              0
+PAPI_TOT_INS           20         5644.6         5322.7         5827.9         128.74         252.33         5643.5              252.33              0
+PAPI_L2_TCM            20         58.286         52.143         62.466         2.4497         4.8015         58.277              4.8015              0
+DELAYCNT: 105000
+
+TASK DEPENDENCY INOUT CHAIN MASTER 24 time     = 2.554305 microseconds +/- 0.119227
+TASK DEPENDENCY INOUT CHAIN MASTER 24 overhead = 2.554144 microseconds +/- 0.119235
+TEST
+--------------------------------------------------------
+Computing TASK DEPENDENCY INOUT CHAIN MASTER 32 time using 1 innerreps and 5000 tasks
+
+      Type    Sample_size        Average            Min            Max           S.D.         CONF95       OVERHEAD     OVERHEAD_CONF95       Outliers
+TIME                   20         2.1771         2.1578          2.198        0.01122       0.021992         2.1769               0.022              0
+PAPI_TOT_CYC           20         6307.7         6251.3         6368.7         32.724          64.14         6302.1              64.396              0
+PAPI_TOT_INS           20         6137.4         6126.5         6145.2          5.691         11.154         6136.3              11.154              0
+PAPI_L2_TCM            20         33.376         32.911         33.821        0.25042        0.49083         33.368             0.49089              0
+DELAYCNT: 105000
+
+TASK DEPENDENCY INOUT CHAIN MASTER 32 time     = 2.177081 microseconds +/- 0.021992
+TASK DEPENDENCY INOUT CHAIN MASTER 32 overhead = 2.176921 microseconds +/- 0.022000
+Application 7044832 resources: utime ~6542s, stime ~37s, Rss ~17789340, inblocks ~10094, outblocks ~25143
