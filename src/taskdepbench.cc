@@ -167,7 +167,9 @@ void refer() {
 template<int NumDeps>
 void testTaskDependencyMaster() {
 
+#ifndef OMPSS
 #pragma omp master
+#endif
   {
     for (size_t i = 0; i < innerreps*nthreads; i++) {
       int dep = (i % TASK_CHUNK_SIZE) * omp_get_thread_num();
@@ -463,7 +465,9 @@ template<int NumDeps>
 void testTaskDependencyFanOutMaster() {
   const char *depbuf = (const char*)1;
   int dep = 0;
+#ifndef OMPSS
 #pragma omp master
+#endif
   {
     for (int i = 0; i < innerreps; i++) {
       int indep = i - 1;
@@ -914,7 +918,9 @@ void testTaskDependencyNeighborsMaster() {
   // thread 0 might create more tasks than the others
   // (to ensure constant number of tasks)
   for (int i = 0; i < innerreps; i++) {
+#ifndef OMPSS
 #pragma omp master
+#endif
     {
       for (int j = 0; j < numberoftasks; j++) {
         // wrap-around task dependencies at the width of the task graph, i.e.,
@@ -981,7 +987,9 @@ void testTaskDependencyNeighborsMaster() {
 template<int NumDeps>
 void testTaskDependencyNeighborsReverseMaster() {
   for (int i = 0; i < innerreps; i++) {
+#ifndef OMPSS
 #pragma omp master
+#endif
     {
       for (int j = 0; j < numberoftasks; j++) {
         //int dep = j* NumDeps/2;
@@ -1048,7 +1056,9 @@ void testTaskDependencyNeighborsReverseMaster() {
 template<int NumDeps>
 void testTaskDependencyOutChainMaster() {
   for (int i = 0; i < innerreps; i++) {
+#ifndef OMPSS
 #pragma omp master
+#endif
     {
       for (int j = 0; j < numberoftasks; j++) {
         int dep = 0; // in the chain, all tasks are connected along one line
@@ -1100,7 +1110,9 @@ void testTaskDependencyOutChainMaster() {
 template<int NumDeps>
 void testTaskDependencyInChainMaster() {
   for (int i = 0; i < innerreps; i++) {
+#ifndef OMPSS
 #pragma omp master
+#endif
     {
       for (int j = 0; j < numberoftasks; j++) {
         int dep = 0;
@@ -1154,7 +1166,9 @@ void testTaskDependencyInChainMaster() {
 template<int NumDeps>
 void testTaskDependencyInOutChainMaster() {
   for (int i = 0; i < innerreps; i++) {
+#ifndef OMPSS
 #pragma omp master
+#endif
     {
       for (int j = 0; j < numberoftasks; j++) {
         int dep = 0;
@@ -1206,7 +1220,9 @@ void testTaskDependencyInOutChainMaster() {
 template<int NumDeps>
 void testTaskDependencyOutLinkedMaster() {
   for (int i = 0; i < innerreps; i++) {
+#ifndef OMPSS
 #pragma omp master
+#endif
     {
       for (int j = 0; j < numberoftasks; j++) {
         int dep = j*NumDeps - 1;
@@ -1258,7 +1274,9 @@ void testTaskDependencyOutLinkedMaster() {
 template<int NumDeps>
 void testTaskDependencyInLinkedMaster() {
   for (int i = 0; i < innerreps; i++) {
+#ifndef OMPSS
 #pragma omp master
+#endif
     {
       for (int j = 0; j < numberoftasks; j++) {
         int dep = j*NumDeps - 1;
@@ -1314,7 +1332,9 @@ void testTaskDependencyInLinkedMaster() {
 template<int NumDeps>
 void testTaskDependencyInOutLinkedMaster() {
   for (int i = 0; i < innerreps; i++) {
+#ifndef OMPSS
 #pragma omp master
+#endif
     {
       for (int j = 0; j < numberoftasks; j++) {
         int dep = j*NumDeps - 1;

@@ -4,7 +4,7 @@
 OMPFLAG = -DOMPVER2 -DOMPVER3
 
 CC=mcc
-CXX=mcxx --ompss -std=c++11
+CXX=mcxx --ompss -std=c++11 -DOMPSS
 CFLAGS = -O1 -lm   -I/opt/cray/papi/5.5.0.2/include
 LDFLAGS = -O0 -lm -L/opt/cray/papi/5.5.0.2/lib -lpapi
 CPP = /usr/bin/cpp

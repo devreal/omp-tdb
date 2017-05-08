@@ -4,8 +4,8 @@
 OMPFLAG = -DOMPVER2 -DOMPVER3
 
 CC=mcc
-CXX=mcxx --ompss -std=c++11
-CFLAGS =  -O1 -lm  
+CXX=mcxx --ompss -std=c++11 -DOMPSS
+CFLAGS =  -O1 -lm
 LDFLAGS = -O0 -lpapi -lm  -L/sw/laki-SL6x/hlrs/performance/papi/2015-09-09-git85a9312-gnu-5.2.0/lib -lpapi
 CPP = /usr/bin/cpp
 LIBS =

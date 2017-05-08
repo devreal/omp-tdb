@@ -214,13 +214,17 @@ unsigned long getinnerreps(void (*test)(void)) {
 #pragma omp parallel
 	{
 #pragma omp barrier
+#ifndef OMPSS
 #pragma omp master
+#endif
         { timer.start(); }
 #pragma omp barrier
 	test();
 #pragma omp taskwait
 #pragma omp barrier
+#ifndef OMPSS
 #pragma omp master
+#endif
         { timer.stop(); }
 	}
 	time = (timer.get_etime()) * 1.0e6;
@@ -368,7 +372,9 @@ void init(int argc, char **argv)
 {
 #pragma omp parallel
     {
+#ifndef OMPSS
 #pragma omp master
+#endif
 	{
 	    nthreads = omp_get_num_threads();
 	}
@@ -475,7 +481,9 @@ void reference(const char *name, void (*refer)(void)) {
 	    }
 	}
 	local_timer[threadnum].stop();
+#ifndef OMPSS
 #pragma omp master
+#endif
 	{
     	timer.stop();
 	}
@@ -614,7 +622,9 @@ void benchmark(const char *name, void (*test)(void))
 	int threadnum = omp_get_thread_num();
 	local_timer[threadnum].reset();
 #pragma omp barrier
+#ifndef OMPSS
 #pragma omp master
+#endif
 	{
 	timer.start();
 	}
@@ -632,7 +642,9 @@ void benchmark(const char *name, void (*test)(void))
 	}
 	local_timer[threadnum].stop();
 #pragma omp barrier
+#ifndef OMPSS
 #pragma omp master
+#endif
 	{
 	timer.stop();
 	}
