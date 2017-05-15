@@ -15,10 +15,11 @@ SYNCOBJS =  syncbench.o common.o
 SCHEDOBJS = schedbench.o common_sched.o 
 ARRAYOBJS = arraybench_$(IDA).o common.o 
 TASKOBJS =  taskbench.o common.o 
-TASDEPKOBJS =  taskdepbench.o common.o 
+TASKDEPOBJS =  taskdepbench.o common.o
 SCHEDFLAGS = -DSCHEDBENCH
 
-all:	syncbench schedbench taskbench taskdepbench
+all:	taskbench taskdepbench
+#all:	syncbench schedbench taskbench taskdepbench
 	$(MAKE) IDA=1 prog
 	$(MAKE) IDA=3 prog
 	$(MAKE) IDA=9 prog
@@ -64,8 +65,8 @@ arraybench_$(IDA): $(ARRAYOBJS) $(CLOCKOBJS) arraybench.c
 taskbench: $(TASKOBJS)
 	$(CXX) -o taskbench $(OMPFLAG) $(TASKOBJS) $(CLOCKOBJS) $(LIBS) -lm $(LDFLAGS) 
 
-taskdepbench: $(TASKOBJS)
-	$(CXX) -o taskdepbench $(OMPFLAG) $(TASKOBJS) $(CLOCKOBJS) $(LIBS) -lm $(LDFLAGS) 
+taskdepbench: $(TASKDEPOBJS)
+	$(CXX) -o taskdepbench $(OMPFLAG) $(TASKDEPOBJS) $(CLOCKOBJS) $(LIBS) -lm $(LDFLAGS)
 
 clean: 
 	-rm *.o syncbench schedbench arraybench_* taskbench taskdepbench
