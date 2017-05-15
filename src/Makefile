@@ -18,8 +18,7 @@ TASKOBJS =  taskbench.o common.o
 TASKDEPOBJS =  taskdepbench.o common.o
 SCHEDFLAGS = -DSCHEDBENCH
 
-all:	taskbench taskdepbench
-#all:	syncbench schedbench taskbench taskdepbench
+all:	syncbench schedbench taskbench taskdepbench
 	$(MAKE) IDA=1 prog
 	$(MAKE) IDA=3 prog
 	$(MAKE) IDA=9 prog
