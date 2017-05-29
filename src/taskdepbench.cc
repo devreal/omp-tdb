@@ -30,75 +30,10 @@ int main(int argc, char **argv) {
 
   init(argc, argv);
 
-  //#ifdef OMPVER3
-#if 1
+#ifdef OMPVER3
 
   /* GENERATE REFERENCE TIME */
   reference("reference time 1", &refer);
-
-#if 0
-
-  /**
-   * The following benchmarks are commented out because they do not
-   * lead to meaningful results. However, they are left in as reference.
-   */
-
-  benchmark("TASK DEPENDENCY FANOUT 1", &testTaskDependencyFanOutMaster<1>);
-  benchmark("TASK DEPENDENCY FANOUT 2", &testTaskDependencyFanOutMaster<2>);
-  benchmark("TASK DEPENDENCY FANOUT 4", &testTaskDependencyFanOutMaster<4>);
-  benchmark("TASK DEPENDENCY FANOUT 8", &testTaskDependencyFanOutMaster<8>);
-  benchmark("TASK DEPENDENCY FANOUT 16", &testTaskDependencyFanOutMaster<16>);
-  benchmark("TASK DEPENDENCY FANOUT 24", &testTaskDependencyFanOutMaster<24>);
-  benchmark("TASK DEPENDENCY FANOUT 32", &testTaskDependencyFanOutMaster<32>);
-
-  benchmark("TASK DEPENDENCY FANIN 1", &testTaskDependencyFanIn<1>);
-  benchmark("TASK DEPENDENCY FANIN 2", &testTaskDependencyFanIn<2>);
-  benchmark("TASK DEPENDENCY FANIN 4", &testTaskDependencyFanIn<4>);
-  benchmark("TASK DEPENDENCY FANIN 8", &testTaskDependencyFanIn<8>);
-  benchmark("TASK DEPENDENCY FANIN 16", &testTaskDependencyFanIn<16>);
-  benchmark("TASK DEPENDENCY FANIN 24", &testTaskDependencyFanIn<24>);
-  benchmark("TASK DEPENDENCY FANIN 32", &testTaskDependencyFanIn<32>);
-
-
-  // benchmark("TASK DEPENDENCY TREE 1", &testTaskDependencyTree<1>);
-  // benchmark("TASK DEPENDENCY TREE 2", &testTaskDependencyTree<2>);
-  // benchmark("TASK DEPENDENCY TREE 4", &testTaskDependencyTree<4>);
-  // benchmark("TASK DEPENDENCY TREE 8", &testTaskDependencyTree<8>);
-  // benchmark("TASK DEPENDENCY TREE 16", &testTaskDependencyTree<16>);
-  // benchmark("TASK DEPENDENCY TREE 24", &testTaskDependencyTree<24>);
-  // benchmark("TASK DEPENDENCY TREE 32", &testTaskDependencyTree<32>);
-  //
-  //
-  // benchmark("TASK DEPENDENCY REVERSEDTREE 1", &testTaskDependencyReversedTree<1>);
-  // benchmark("TASK DEPENDENCY REVERSEDTREE 2", &testTaskDependencyReversedTree<2>);
-  // benchmark("TASK DEPENDENCY REVERSEDTREE 4", &testTaskDependencyReversedTree<4>);
-  // benchmark("TASK DEPENDENCY REVERSEDTREE 8", &testTaskDependencyReversedTree<8>);
-  // benchmark("TASK DEPENDENCY REVERSEDTREE 16", &testTaskDependencyReversedTree<16>);
-  // benchmark("TASK DEPENDENCY REVERSEDTREE 24", &testTaskDependencyReversedTree<24>);
-  // benchmark("TASK DEPENDENCY REVERSEDTREE 32", &testTaskDependencyReversedTree<32>);
-  benchmark("TASK DEPENDENCY NEIGHBORS 1", &testTaskDependencyNeighbors<1>);
-  benchmark("TASK DEPENDENCY NEIGHBORS 2", &testTaskDependencyNeighbors<2>);
-  benchmark("TASK DEPENDENCY NEIGHBORS 4", &testTaskDependencyNeighbors<4>);
-  benchmark("TASK DEPENDENCY NEIGHBORS 8", &testTaskDependencyNeighbors<8>);
-  benchmark("TASK DEPENDENCY NEIGHBORS 16", &testTaskDependencyNeighbors<16>);
-  benchmark("TASK DEPENDENCY NEIGHBORS 24", &testTaskDependencyNeighbors<24>);
-  benchmark("TASK DEPENDENCY NEIGHBORS 32", &testTaskDependencyNeighbors<32>);
-  benchmark("TASK DEPENDENCY NEIGHBORS_STRIDE 1", &testTaskDependencyNeighbors<1,1000>);
-  benchmark("TASK DEPENDENCY NEIGHBORS_STRIDE 2", &testTaskDependencyNeighbors<2,1000>);
-  benchmark("TASK DEPENDENCY NEIGHBORS_STRIDE 4", &testTaskDependencyNeighbors<4,1000>);
-  benchmark("TASK DEPENDENCY NEIGHBORS_STRIDE 8", &testTaskDependencyNeighbors<8,1000>);
-  benchmark("TASK DEPENDENCY NEIGHBORS_STRIDE 16", &testTaskDependencyNeighbors<16,1000>);
-  benchmark("TASK DEPENDENCY NEIGHBORS_STRIDE 24", &testTaskDependencyNeighbors<24,1000>);
-  benchmark("TASK DEPENDENCY NEIGHBORS_STRIDE 32", &testTaskDependencyNeighbors<32,1000>);
-
-  benchmark("TASK DEPENDENCY NEIGHBORSREV 1", &testTaskDependencyNeighborsReverse<1>);
-  benchmark("TASK DEPENDENCY NEIGHBORSREV 2", &testTaskDependencyNeighborsReverse<2>);
-  benchmark("TASK DEPENDENCY NEIGHBORSREV 4", &testTaskDependencyNeighborsReverse<4>);
-  benchmark("TASK DEPENDENCY NEIGHBORSREV 8", &testTaskDependencyNeighborsReverse<8>);
-  benchmark("TASK DEPENDENCY NEIGHBORSREV 16", &testTaskDependencyNeighborsReverse<16>);
-  benchmark("TASK DEPENDENCY NEIGHBORSREV 24", &testTaskDependencyNeighborsReverse<24>);
-  benchmark("TASK DEPENDENCY NEIGHBORSREV 32", &testTaskDependencyNeighborsReverse<32>);
-#endif
 
   benchmark("TASK DEPENDENCY NEIGHBORS MASTER 1", &testTaskDependencyNeighborsMaster<1>);
   benchmark("TASK DEPENDENCY NEIGHBORS MASTER 2", &testTaskDependencyNeighborsMaster<2>);
@@ -189,51 +124,53 @@ void testTaskDependencyNeighbors() {
       switch(NumDeps){
       case 0:
 #pragma omp task
-      { delay(delaylength); }
-      break;
+        { delay(delaylength); }
+        break;
       case 1:
 #pragma omp task depend(out: depbuf[dep_out])\
     depend(in: depbuf[dep_in])
-      { delay(delaylength); }
-      break;
+        { delay(delaylength); }
+        break;
       case 2:
 #pragma omp task depend(out: depbuf[dep_out])\
     depend(in: depbuf[dep_in+1], depbuf[dep_in], depbuf[dep_in-1] )
-      { delay(delaylength); }
-      break;
+        { delay(delaylength); }
+        break;
       case 4:
 #pragma omp task depend(out: depbuf[dep_out])\
     depend(in:  depbuf[dep_in+2], depbuf[dep_in+1], depbuf[dep_in], depbuf[dep_in-1], depbuf[dep_in-2])
-      { delay(delaylength); }
-      break;
+        { delay(delaylength); }
+        break;
       case 8:
 #pragma omp task depend(out: depbuf[dep_out])\
     depend(in:   depbuf[dep_in+4], depbuf[dep_in+3], depbuf[dep_in+2], depbuf[dep_in+1], depbuf[dep_in], depbuf[dep_in-1], depbuf[dep_in-2], depbuf[dep_in-3], depbuf[dep_in-4])
-      { delay(delaylength); }
-      break;
+        { delay(delaylength); }
+        break;
       case 16:
 #pragma omp task depend(out: depbuf[dep_out])\
     depend(in:   depbuf[dep_in+4], depbuf[dep_in+3], depbuf[dep_in+2], depbuf[dep_in+1], depbuf[dep_in], depbuf[dep_in-1], depbuf[dep_in-2], depbuf[dep_in-3], depbuf[dep_in-4])\
     depend(in:   depbuf[dep_in+8], depbuf[dep_in+7], depbuf[dep_in+6], depbuf[dep_in+5], depbuf[dep_in-5], depbuf[dep_in-6], depbuf[dep_in-7], depbuf[dep_in-8])
-      { delay(delaylength); }
-      break;
+        { delay(delaylength); }
+        break;
       case 24:
 #pragma omp task depend(out: depbuf[dep_out])\
     depend(in:   depbuf[dep_in+4], depbuf[dep_in+3], depbuf[dep_in+2], depbuf[dep_in+1], depbuf[dep_in], depbuf[dep_in-1], depbuf[dep_in-2], depbuf[dep_in-3], depbuf[dep_in-4])\
     depend(in:   depbuf[dep_in+8], depbuf[dep_in+7], depbuf[dep_in+6], depbuf[dep_in+5], depbuf[dep_in-5], depbuf[dep_in-6], depbuf[dep_in-7], depbuf[dep_in-8])\
     depend(in:   depbuf[dep_in+12], depbuf[dep_in+11], depbuf[dep_in+10], depbuf[dep_in+9], depbuf[dep_in-9], depbuf[dep_in-10], depbuf[dep_in-11], depbuf[dep_in-12])
-      { delay(delaylength); }
-      break;
+        { delay(delaylength); }
+        break;
       case 32:
 #pragma omp task depend(out: depbuf[dep_out])\
     depend(in:   depbuf[dep_in+4], depbuf[dep_in+3], depbuf[dep_in+2], depbuf[dep_in+1], depbuf[dep_in], depbuf[dep_in-1], depbuf[dep_in-2], depbuf[dep_in-3], depbuf[dep_in-4])\
     depend(in:   depbuf[dep_in+8], depbuf[dep_in+7], depbuf[dep_in+6], depbuf[dep_in+5], depbuf[dep_in-5], depbuf[dep_in-6], depbuf[dep_in-7], depbuf[dep_in-8])\
     depend(in:   depbuf[dep_in+12], depbuf[dep_in+11], depbuf[dep_in+10], depbuf[dep_in+9], depbuf[dep_in-9], depbuf[dep_in-10], depbuf[dep_in-11], depbuf[dep_in-12])\
     depend(in:   depbuf[dep_in+16], depbuf[dep_in+15], depbuf[dep_in+14], depbuf[dep_in+13], depbuf[dep_in-13], depbuf[dep_in-14], depbuf[dep_in-15], depbuf[dep_in-16])
-      { delay(delaylength); }
-      break;
+        { delay(delaylength); }
+        break;
+      default:
+        fprintf("NumDeps %i not supported!", NumDeps);
+        assert(NULL);
       }
-
     }
 #pragma omp taskwait
   }
@@ -264,49 +201,52 @@ void testTaskDependencyNeighborsReverse() {
       switch(NumDeps){
       case 0:
 #pragma omp task
-      { delay(delaylength); }
-      break;
+        { delay(delaylength); }
+        break;
       case 1:
 #pragma omp task depend(inout: depbuf[dep_in])\
     depend(out: depbuf[dep_out+1])
-      { delay(delaylength); }
-      break;
+        { delay(delaylength); }
+        break;
       case 2:
 #pragma omp task depend(inout: depbuf[dep_in])\
     depend(out: depbuf[dep_out+1], depbuf[dep_out-1] )
-      { delay(delaylength); }
-      break;
+        { delay(delaylength); }
+        break;
       case 4:
 #pragma omp task depend(inout: depbuf[dep_in])\
     depend(out:  depbuf[dep_out+2], depbuf[dep_out+1], depbuf[dep_out-1], depbuf[dep_out-2])
-      { delay(delaylength); }
-      break;
+        { delay(delaylength); }
+        break;
       case 8:
 #pragma omp task depend(inout: depbuf[dep_in])\
     depend(out:   depbuf[dep_out+4], depbuf[dep_out+3], depbuf[dep_out+2], depbuf[dep_out+1], depbuf[dep_out-1], depbuf[dep_out-2], depbuf[dep_out-3], depbuf[dep_out-4])
-      { delay(delaylength); }
-      break;
+        { delay(delaylength); }
+        break;
       case 16:
 #pragma omp task depend(inout: depbuf[dep_in])\
     depend(out:   depbuf[dep_out+4], depbuf[dep_out+3], depbuf[dep_out+2], depbuf[dep_out+1], depbuf[dep_out-1], depbuf[dep_out-2], depbuf[dep_out-3], depbuf[dep_out-4])\
     depend(out:   depbuf[dep_out+8], depbuf[dep_out+7], depbuf[dep_out+6], depbuf[dep_out+5], depbuf[dep_out-5], depbuf[dep_out-6], depbuf[dep_out-7], depbuf[dep_out-8])
-      { delay(delaylength); }
-      break;
+        { delay(delaylength); }
+        break;
       case 24:
 #pragma omp task depend(inout: depbuf[dep_in])\
     depend(out:   depbuf[dep_out+4], depbuf[dep_out+3], depbuf[dep_out+2], depbuf[dep_out+1], depbuf[dep_out-1], depbuf[dep_out-2], depbuf[dep_out-3], depbuf[dep_out-4])\
     depend(out:   depbuf[dep_out+8], depbuf[dep_out+7], depbuf[dep_out+6], depbuf[dep_out+5], depbuf[dep_out-5], depbuf[dep_out-6], depbuf[dep_out-7], depbuf[dep_out-8])\
     depend(out:   depbuf[dep_out+12], depbuf[dep_out+11], depbuf[dep_out+10], depbuf[dep_out+9], depbuf[dep_out-9], depbuf[dep_out-10], depbuf[dep_out-11], depbuf[dep_out-12])
-      { delay(delaylength); }
-      break;
+        { delay(delaylength); }
+        break;
       case 32:
 #pragma omp task depend(inout: depbuf[dep_in])\
     depend(out:   depbuf[dep_out+4], depbuf[dep_out+3], depbuf[dep_out+2], depbuf[dep_out+1], depbuf[dep_out-1], depbuf[dep_out-2], depbuf[dep_out-3], depbuf[dep_out-4])\
     depend(out:   depbuf[dep_out+8], depbuf[dep_out+7], depbuf[dep_out+6], depbuf[dep_out+5], depbuf[dep_out-5], depbuf[dep_out-6], depbuf[dep_out-7], depbuf[dep_out-8])\
     depend(out:   depbuf[dep_out+12], depbuf[dep_out+11], depbuf[dep_out+10], depbuf[dep_out+9], depbuf[dep_out-9], depbuf[dep_out-10], depbuf[dep_out-11], depbuf[dep_out-12])\
     depend(out:   depbuf[dep_out+16], depbuf[dep_out+15], depbuf[dep_out+14], depbuf[dep_out+13], depbuf[dep_out-13], depbuf[dep_out-14], depbuf[dep_out-15], depbuf[dep_out-16])
-      { delay(delaylength); }
-      break;
+        { delay(delaylength); }
+        break;
+      default:
+        fprintf("NumDeps %i not supported!", NumDeps);
+        assert(NULL);
       }
     }
 #pragma omp taskwait
@@ -373,6 +313,9 @@ void testTaskDependencyNeighborsMaster() {
     depend(in:   depbuf[dep_in+16], depbuf[dep_in+15], depbuf[dep_in+14], depbuf[dep_in+13], depbuf[dep_in-13], depbuf[dep_in-14], depbuf[dep_in-15], depbuf[dep_in-16])
           { delay(delaylength); }
           break;
+        default:
+          fprintf("NumDeps %i not supported!", NumDeps);
+          assert(NULL);
         }
       }
 #pragma omp taskwait
@@ -440,6 +383,9 @@ void testTaskDependencyNeighborsReverseMaster() {
     depend(out:   depbuf[dep_out+16], depbuf[dep_out+15], depbuf[dep_out+14], depbuf[dep_out+13], depbuf[dep_out-13], depbuf[dep_out-14], depbuf[dep_out-15], depbuf[dep_out-16])
           { delay(delaylength); }
           break;
+        default:
+          fprintf("NumDeps %i not supported!", NumDeps);
+          assert(NULL);
         }
       }
 #pragma omp taskwait
@@ -495,6 +441,9 @@ void testTaskDependencyOutChainMaster() {
     depend(out: depbuf[dep + 24], depbuf[dep + 25], depbuf[dep + 26], depbuf[dep + 27], depbuf[dep + 28], depbuf[dep + 29], depbuf[dep + 30], depbuf[dep + 31])
           { delay(delaylength); }
           break;
+        default:
+          fprintf("NumDeps %i not supported!", NumDeps);
+          assert(NULL);
         }
       }
 #pragma omp taskwait
@@ -552,6 +501,9 @@ void testTaskDependencyInChainMaster() {
     depend(inout: depbuf[dep + 31])
           { delay(delaylength); }
           break;
+        default:
+          fprintf("NumDeps %i not supported!", NumDeps);
+          assert(NULL);
         }
       }
 #pragma omp taskwait
@@ -605,6 +557,9 @@ void testTaskDependencyInOutChainMaster() {
     depend(inout: depbuf[dep + 24], depbuf[dep + 25], depbuf[dep + 26], depbuf[dep + 27], depbuf[dep + 28], depbuf[dep + 29], depbuf[dep + 30], depbuf[dep + 31])
           { delay(delaylength); }
           break;
+        default:
+          fprintf("NumDeps %i not supported!", NumDeps);
+          assert(NULL);
         }
       }
 #pragma omp taskwait
@@ -658,6 +613,9 @@ void testTaskDependencyOutLinkedMaster() {
     depend(out: depbuf[dep + 24], depbuf[dep + 25], depbuf[dep + 26], depbuf[dep + 27], depbuf[dep + 28], depbuf[dep + 29], depbuf[dep + 30], depbuf[dep + 31])
           { delay(delaylength); }
           break;
+        default:
+          fprintf("NumDeps %i not supported!", NumDeps);
+          assert(NULL);
         }
       }
 #pragma omp taskwait
@@ -715,6 +673,9 @@ void testTaskDependencyInLinkedMaster() {
     depend(inout: depbuf[dep + 31])
           { delay(delaylength); }
           break;
+        default:
+          fprintf("NumDeps %i not supported!", NumDeps);
+          assert(NULL);
         }
       }
 #pragma omp taskwait
@@ -770,6 +731,9 @@ void testTaskDependencyInOutLinkedMaster() {
     depend(inout: depbuf[dep + 24], depbuf[dep + 25], depbuf[dep + 26], depbuf[dep + 27], depbuf[dep + 28], depbuf[dep + 29], depbuf[dep + 30], depbuf[dep + 31])
           { delay(delaylength); }
           break;
+        default:
+          fprintf("NumDeps %i not supported!", NumDeps);
+          assert(NULL);
         }
       }
 #pragma omp taskwait
