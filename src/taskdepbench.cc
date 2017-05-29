@@ -164,601 +164,6 @@ void refer() {
 
 }
 
-template<int NumDeps>
-void testTaskDependencyMaster() {
-
-#pragma omp master
-  {
-    for (size_t i = 0; i < innerreps*nthreads; i++) {
-      int dep = (i % TASK_CHUNK_SIZE) * omp_get_thread_num();
-      switch(NumDeps){
-      case 0:
-#pragma omp task
-{ delay(delaylength); }
-break;
-      case 1:
-#pragma omp task depend(inout:depbuf[dep])
-      { delay(delaylength); }
-      break;
-      case 2:
-#pragma omp task depend(inout:depbuf[dep], depbuf[dep + TASK_CHUNK_SIZE])
-      { delay(delaylength); }
-      break;
-      case 4:
-#pragma omp task depend(inout:depbuf[dep], depbuf[dep + TASK_CHUNK_SIZE], depbuf[dep + 2*TASK_CHUNK_SIZE], depbuf[dep + 3*TASK_CHUNK_SIZE])
-      { delay(delaylength); }
-      break;
-      case 6:
-#pragma omp task depend(inout:depbuf[dep], depbuf[dep + TASK_CHUNK_SIZE], depbuf[dep + 2*TASK_CHUNK_SIZE], depbuf[dep + 3*TASK_CHUNK_SIZE],  \
-    depbuf[dep + 4*TASK_CHUNK_SIZE], depbuf[dep + 5*TASK_CHUNK_SIZE])
-      { delay(delaylength); }
-      break;
-      case 8:
-#pragma omp task depend(inout:depbuf[dep], depbuf[dep + TASK_CHUNK_SIZE], depbuf[dep + 2*TASK_CHUNK_SIZE], depbuf[dep + 3*TASK_CHUNK_SIZE],   \
-    depbuf[dep + 4*TASK_CHUNK_SIZE], depbuf[dep + 5*TASK_CHUNK_SIZE], depbuf[dep + 6*TASK_CHUNK_SIZE], \
-    depbuf[dep + 7*TASK_CHUNK_SIZE])
-      { delay(delaylength); }
-      break;
-      case 10:
-#pragma omp task depend(inout:depbuf[dep], depbuf[dep + TASK_CHUNK_SIZE], depbuf[dep + 2*TASK_CHUNK_SIZE], depbuf[dep + 3*TASK_CHUNK_SIZE],   \
-    depbuf[dep + 4*TASK_CHUNK_SIZE], depbuf[dep + 5*TASK_CHUNK_SIZE], depbuf[dep + 6*TASK_CHUNK_SIZE], \
-    depbuf[dep + 7*TASK_CHUNK_SIZE], depbuf[dep + 8*TASK_CHUNK_SIZE], depbuf[dep + 9*TASK_CHUNK_SIZE])
-      { delay(delaylength); }
-      break;
-      case 12:
-#pragma omp task depend(inout:depbuf[dep], depbuf[dep + TASK_CHUNK_SIZE], depbuf[dep + 2*TASK_CHUNK_SIZE], depbuf[dep + 3*TASK_CHUNK_SIZE],   \
-    depbuf[dep + 4*TASK_CHUNK_SIZE], depbuf[dep + 5*TASK_CHUNK_SIZE], depbuf[dep + 6*TASK_CHUNK_SIZE], \
-    depbuf[dep + 7*TASK_CHUNK_SIZE], depbuf[dep + 8*TASK_CHUNK_SIZE], depbuf[dep + 9*TASK_CHUNK_SIZE], \
-    depbuf[dep + 10*TASK_CHUNK_SIZE], depbuf[dep + 11*TASK_CHUNK_SIZE])
-      { delay(delaylength); }
-      break;
-      case 14:
-#pragma omp task depend(inout:depbuf[dep], depbuf[dep + TASK_CHUNK_SIZE], depbuf[dep + 2*TASK_CHUNK_SIZE], depbuf[dep + 3*TASK_CHUNK_SIZE],      \
-    depbuf[dep + 4*TASK_CHUNK_SIZE], depbuf[dep + 5*TASK_CHUNK_SIZE], depbuf[dep + 6*TASK_CHUNK_SIZE],    \
-    depbuf[dep + 7*TASK_CHUNK_SIZE], depbuf[dep + 8*TASK_CHUNK_SIZE], depbuf[dep + 9*TASK_CHUNK_SIZE],    \
-    depbuf[dep + 10*TASK_CHUNK_SIZE], depbuf[dep + 11*TASK_CHUNK_SIZE], depbuf[dep + 12*TASK_CHUNK_SIZE], \
-    depbuf[dep + 13*TASK_CHUNK_SIZE])
-      { delay(delaylength); }
-      break;
-      case 16:
-#pragma omp task depend(inout:depbuf[dep], depbuf[dep + TASK_CHUNK_SIZE], depbuf[dep + 2*TASK_CHUNK_SIZE], depbuf[dep + 3*TASK_CHUNK_SIZE],      \
-    depbuf[dep + 4*TASK_CHUNK_SIZE], depbuf[dep + 5*TASK_CHUNK_SIZE], depbuf[dep + 6*TASK_CHUNK_SIZE],    \
-    depbuf[dep + 7*TASK_CHUNK_SIZE], depbuf[dep + 8*TASK_CHUNK_SIZE], depbuf[dep + 9*TASK_CHUNK_SIZE],    \
-    depbuf[dep + 10*TASK_CHUNK_SIZE], depbuf[dep + 11*TASK_CHUNK_SIZE], depbuf[dep + 12*TASK_CHUNK_SIZE], \
-    depbuf[dep + 13*TASK_CHUNK_SIZE], depbuf[dep + 14*TASK_CHUNK_SIZE], depbuf[dep + 15*TASK_CHUNK_SIZE])
-      { delay(delaylength); }
-      break;
-      case 18:
-#pragma omp task depend(inout: depbuf[dep], depbuf[dep + 1*TASK_CHUNK_SIZE], depbuf[dep + 2*TASK_CHUNK_SIZE], depbuf[dep + 3*TASK_CHUNK_SIZE],   \
-    depbuf[dep + 4*TASK_CHUNK_SIZE], depbuf[dep + 5*TASK_CHUNK_SIZE], depbuf[dep + 6*TASK_CHUNK_SIZE],   \
-    depbuf[dep + 7*TASK_CHUNK_SIZE], depbuf[dep + 8*TASK_CHUNK_SIZE], depbuf[dep + 9*TASK_CHUNK_SIZE],   \
-    depbuf[dep + 10*TASK_CHUNK_SIZE], depbuf[dep + 11*TASK_CHUNK_SIZE], depbuf[dep + 12*TASK_CHUNK_SIZE],\
-    depbuf[dep + 13*TASK_CHUNK_SIZE], depbuf[dep + 14*TASK_CHUNK_SIZE], depbuf[dep + 15*TASK_CHUNK_SIZE],\
-    depbuf[dep + 16*TASK_CHUNK_SIZE], depbuf[dep + 17*TASK_CHUNK_SIZE])
-      { delay(delaylength); }
-      break;
-      case 20:
-#pragma omp task depend(inout: depbuf[dep], depbuf[dep + 1*TASK_CHUNK_SIZE], depbuf[dep + 2*TASK_CHUNK_SIZE], depbuf[dep + 3*TASK_CHUNK_SIZE],   \
-    depbuf[dep + 4*TASK_CHUNK_SIZE], depbuf[dep + 5*TASK_CHUNK_SIZE], depbuf[dep + 6*TASK_CHUNK_SIZE],   \
-    depbuf[dep + 7*TASK_CHUNK_SIZE], depbuf[dep + 8*TASK_CHUNK_SIZE], depbuf[dep + 9*TASK_CHUNK_SIZE],   \
-    depbuf[dep + 10*TASK_CHUNK_SIZE], depbuf[dep + 11*TASK_CHUNK_SIZE], depbuf[dep + 12*TASK_CHUNK_SIZE],\
-    depbuf[dep + 13*TASK_CHUNK_SIZE], depbuf[dep + 14*TASK_CHUNK_SIZE], depbuf[dep + 15*TASK_CHUNK_SIZE],\
-    depbuf[dep + 16*TASK_CHUNK_SIZE], depbuf[dep + 17*TASK_CHUNK_SIZE], depbuf[dep + 18*TASK_CHUNK_SIZE],\
-    depbuf[dep + 19*TASK_CHUNK_SIZE])
-      { delay(delaylength); }
-      break;
-      case 22:
-#pragma omp task depend(inout: depbuf[dep], depbuf[dep + 1*TASK_CHUNK_SIZE], depbuf[dep + 2*TASK_CHUNK_SIZE], depbuf[dep + 3*TASK_CHUNK_SIZE],   \
-    depbuf[dep + 4*TASK_CHUNK_SIZE], depbuf[dep + 5*TASK_CHUNK_SIZE], depbuf[dep + 6*TASK_CHUNK_SIZE],   \
-    depbuf[dep + 7*TASK_CHUNK_SIZE], depbuf[dep + 8*TASK_CHUNK_SIZE], depbuf[dep + 9*TASK_CHUNK_SIZE],   \
-    depbuf[dep + 10*TASK_CHUNK_SIZE], depbuf[dep + 11*TASK_CHUNK_SIZE], depbuf[dep + 12*TASK_CHUNK_SIZE],\
-    depbuf[dep + 13*TASK_CHUNK_SIZE], depbuf[dep + 14*TASK_CHUNK_SIZE], depbuf[dep + 15*TASK_CHUNK_SIZE],\
-    depbuf[dep + 16*TASK_CHUNK_SIZE], depbuf[dep + 17*TASK_CHUNK_SIZE], depbuf[dep + 18*TASK_CHUNK_SIZE],\
-    depbuf[dep + 19*TASK_CHUNK_SIZE], depbuf[dep + 20*TASK_CHUNK_SIZE], depbuf[dep + 21*TASK_CHUNK_SIZE])
-      { delay(delaylength); }
-      break;
-      case 24:
-#pragma omp task depend(inout: depbuf[dep], depbuf[dep + 1*TASK_CHUNK_SIZE], depbuf[dep + 2*TASK_CHUNK_SIZE], depbuf[dep + 3*TASK_CHUNK_SIZE],   \
-    depbuf[dep + 4*TASK_CHUNK_SIZE], depbuf[dep + 5*TASK_CHUNK_SIZE], depbuf[dep + 6*TASK_CHUNK_SIZE],   \
-    depbuf[dep + 7*TASK_CHUNK_SIZE], depbuf[dep + 8*TASK_CHUNK_SIZE], depbuf[dep + 9*TASK_CHUNK_SIZE],   \
-    depbuf[dep + 10*TASK_CHUNK_SIZE], depbuf[dep + 11*TASK_CHUNK_SIZE], depbuf[dep + 12*TASK_CHUNK_SIZE],\
-    depbuf[dep + 13*TASK_CHUNK_SIZE], depbuf[dep + 14*TASK_CHUNK_SIZE], depbuf[dep + 15*TASK_CHUNK_SIZE],\
-    depbuf[dep + 16*TASK_CHUNK_SIZE], depbuf[dep + 17*TASK_CHUNK_SIZE], depbuf[dep + 18*TASK_CHUNK_SIZE],\
-    depbuf[dep + 19*TASK_CHUNK_SIZE], depbuf[dep + 20*TASK_CHUNK_SIZE], depbuf[dep + 21*TASK_CHUNK_SIZE],\
-    depbuf[dep + 22*TASK_CHUNK_SIZE], depbuf[dep + 23*TASK_CHUNK_SIZE])
-      { delay(delaylength); }
-      break;
-      case 26:
-#pragma omp task depend(inout: depbuf[dep], depbuf[dep + 1*TASK_CHUNK_SIZE], depbuf[dep + 2*TASK_CHUNK_SIZE], depbuf[dep + 3*TASK_CHUNK_SIZE],   \
-    depbuf[dep + 4*TASK_CHUNK_SIZE], depbuf[dep + 5*TASK_CHUNK_SIZE], depbuf[dep + 6*TASK_CHUNK_SIZE],   \
-    depbuf[dep + 7*TASK_CHUNK_SIZE], depbuf[dep + 8*TASK_CHUNK_SIZE], depbuf[dep + 9*TASK_CHUNK_SIZE],   \
-    depbuf[dep + 10*TASK_CHUNK_SIZE], depbuf[dep + 11*TASK_CHUNK_SIZE], depbuf[dep + 12*TASK_CHUNK_SIZE],\
-    depbuf[dep + 13*TASK_CHUNK_SIZE], depbuf[dep + 14*TASK_CHUNK_SIZE], depbuf[dep + 15*TASK_CHUNK_SIZE],\
-    depbuf[dep + 16*TASK_CHUNK_SIZE], depbuf[dep + 17*TASK_CHUNK_SIZE], depbuf[dep + 18*TASK_CHUNK_SIZE],\
-    depbuf[dep + 19*TASK_CHUNK_SIZE], depbuf[dep + 20*TASK_CHUNK_SIZE], depbuf[dep + 21*TASK_CHUNK_SIZE],\
-    depbuf[dep + 22*TASK_CHUNK_SIZE], depbuf[dep + 23*TASK_CHUNK_SIZE], depbuf[dep + 24*TASK_CHUNK_SIZE],\
-    depbuf[dep + 25*TASK_CHUNK_SIZE])
-      { delay(delaylength); }
-      break;
-      case 27:
-#pragma omp task depend(inout: depbuf[dep]                    ,  depbuf[dep + 1*TASK_CHUNK_SIZE],  depbuf[dep + 2*TASK_CHUNK_SIZE],  depbuf[dep + 3*TASK_CHUNK_SIZE])  \
-    depend(inout: depbuf[dep + 4*TASK_CHUNK_SIZE],  depbuf[dep + 5*TASK_CHUNK_SIZE],  depbuf[dep + 6*TASK_CHUNK_SIZE],  depbuf[dep + 7*TASK_CHUNK_SIZE])  \
-    depend(inout: depbuf[dep + 8*TASK_CHUNK_SIZE],  depbuf[dep + 9*TASK_CHUNK_SIZE],  depbuf[dep + 10*TASK_CHUNK_SIZE], depbuf[dep + 11*TASK_CHUNK_SIZE]) \
-    depend(inout: depbuf[dep + 12*TASK_CHUNK_SIZE], depbuf[dep + 13*TASK_CHUNK_SIZE], depbuf[dep + 14*TASK_CHUNK_SIZE], depbuf[dep + 15*TASK_CHUNK_SIZE]) \
-    depend(inout: depbuf[dep + 16*TASK_CHUNK_SIZE], depbuf[dep + 17*TASK_CHUNK_SIZE], depbuf[dep + 18*TASK_CHUNK_SIZE], depbuf[dep + 19*TASK_CHUNK_SIZE]) \
-    depend(inout: depbuf[dep + 20*TASK_CHUNK_SIZE], depbuf[dep + 21*TASK_CHUNK_SIZE], depbuf[dep + 22*TASK_CHUNK_SIZE], depbuf[dep + 23*TASK_CHUNK_SIZE]) \
-    depend(inout: depbuf[dep + 24*TASK_CHUNK_SIZE], depbuf[dep + 25*TASK_CHUNK_SIZE], depbuf[dep + 26*TASK_CHUNK_SIZE])
-      { delay(delaylength); }
-      break;
-      case 32:
-#pragma omp task depend(inout: depbuf[dep]                    ,  depbuf[dep + 1*TASK_CHUNK_SIZE],  depbuf[dep + 2*TASK_CHUNK_SIZE],  depbuf[dep + 3*TASK_CHUNK_SIZE])  \
-    depend(inout: depbuf[dep + 4*TASK_CHUNK_SIZE],  depbuf[dep + 5*TASK_CHUNK_SIZE],  depbuf[dep + 6*TASK_CHUNK_SIZE],  depbuf[dep + 7*TASK_CHUNK_SIZE])  \
-    depend(inout: depbuf[dep + 8*TASK_CHUNK_SIZE],  depbuf[dep + 9*TASK_CHUNK_SIZE],  depbuf[dep + 10*TASK_CHUNK_SIZE], depbuf[dep + 11*TASK_CHUNK_SIZE]) \
-    depend(inout: depbuf[dep + 12*TASK_CHUNK_SIZE], depbuf[dep + 13*TASK_CHUNK_SIZE], depbuf[dep + 14*TASK_CHUNK_SIZE], depbuf[dep + 15*TASK_CHUNK_SIZE]) \
-    depend(inout: depbuf[dep + 16*TASK_CHUNK_SIZE], depbuf[dep + 17*TASK_CHUNK_SIZE], depbuf[dep + 18*TASK_CHUNK_SIZE], depbuf[dep + 19*TASK_CHUNK_SIZE]) \
-    depend(inout: depbuf[dep + 20*TASK_CHUNK_SIZE], depbuf[dep + 21*TASK_CHUNK_SIZE], depbuf[dep + 22*TASK_CHUNK_SIZE], depbuf[dep + 23*TASK_CHUNK_SIZE]) \
-    depend(inout: depbuf[dep + 24*TASK_CHUNK_SIZE], depbuf[dep + 25*TASK_CHUNK_SIZE], depbuf[dep + 26*TASK_CHUNK_SIZE], depbuf[dep + 27*TASK_CHUNK_SIZE]) \
-    depend(inout: depbuf[dep + 28*TASK_CHUNK_SIZE], depbuf[dep + 29*TASK_CHUNK_SIZE], depbuf[dep + 30*TASK_CHUNK_SIZE], depbuf[dep + 31*TASK_CHUNK_SIZE])
-      { delay(delaylength); }
-      break;
-
-
-      }
-      //                    delay(delaylength);
-    }
-  }
-#pragma omp taskwait
-}
-
-template<int NumDeps>
-void testTaskDependencyAll() {
-
-  for (int i = 0; i < innerreps; i++) {
-    int dep = (i % TASK_CHUNK_SIZE) * omp_get_thread_num();
-    switch(NumDeps){
-    case 0:
-#pragma omp task
-{ delay(delaylength); }
-break;
-    case 1:
-#pragma omp task depend(inout:depbuf[dep])
-    { delay(delaylength); }
-    break;
-    case 2:
-#pragma omp task depend(inout:depbuf[dep], depbuf[dep + TASK_CHUNK_SIZE])
-    { delay(delaylength); }
-    break;
-    case 4:
-#pragma omp task depend(inout:depbuf[dep], depbuf[dep + TASK_CHUNK_SIZE], depbuf[dep + 2*TASK_CHUNK_SIZE], depbuf[dep + 3*TASK_CHUNK_SIZE])
-    { delay(delaylength); }
-    break;
-    case 6:
-#pragma omp task depend(inout:depbuf[dep], depbuf[dep + TASK_CHUNK_SIZE], depbuf[dep + 2*TASK_CHUNK_SIZE], depbuf[dep + 3*TASK_CHUNK_SIZE])  \
-    depend(inout: depbuf[dep + 4*TASK_CHUNK_SIZE], depbuf[dep + 5*TASK_CHUNK_SIZE])
-    { delay(delaylength); }
-    break;
-    case 8:
-#pragma omp task depend(inout:depbuf[dep], depbuf[dep + TASK_CHUNK_SIZE], depbuf[dep + 2*TASK_CHUNK_SIZE], depbuf[dep + 3*TASK_CHUNK_SIZE])  \
-    depend(inout: depbuf[dep + 4*TASK_CHUNK_SIZE], depbuf[dep + 5*TASK_CHUNK_SIZE], depbuf[dep + 6*TASK_CHUNK_SIZE]) \
-    depend(inout:  depbuf[dep + 7*TASK_CHUNK_SIZE])
-    { delay(delaylength); }
-    break;
-    case 10:
-#pragma omp task depend(inout:depbuf[dep], depbuf[dep + TASK_CHUNK_SIZE], depbuf[dep + 2*TASK_CHUNK_SIZE], depbuf[dep + 3*TASK_CHUNK_SIZE])   \
-    depend(inout: depbuf[dep + 4*TASK_CHUNK_SIZE], depbuf[dep + 5*TASK_CHUNK_SIZE], depbuf[dep + 6*TASK_CHUNK_SIZE]) \
-    depend(inout:  depbuf[dep + 7*TASK_CHUNK_SIZE], depbuf[dep + 8*TASK_CHUNK_SIZE], depbuf[dep + 9*TASK_CHUNK_SIZE])
-    { delay(delaylength); }
-    break;
-    case 12:
-#pragma omp task depend(inout:depbuf[dep], depbuf[dep + TASK_CHUNK_SIZE], depbuf[dep + 2*TASK_CHUNK_SIZE], depbuf[dep + 3*TASK_CHUNK_SIZE])   \
-    depend(inout: depbuf[dep + 4*TASK_CHUNK_SIZE], depbuf[dep + 5*TASK_CHUNK_SIZE], depbuf[dep + 6*TASK_CHUNK_SIZE]) \
-    depend(inout:  depbuf[dep + 7*TASK_CHUNK_SIZE], depbuf[dep + 8*TASK_CHUNK_SIZE], depbuf[dep + 9*TASK_CHUNK_SIZE]) \
-    depend(inout:  depbuf[dep + 10*TASK_CHUNK_SIZE], depbuf[dep + 11*TASK_CHUNK_SIZE])
-    { delay(delaylength); }
-    break;
-    case 14:
-#pragma omp task depend(inout:depbuf[dep], depbuf[dep + TASK_CHUNK_SIZE], depbuf[dep + 2*TASK_CHUNK_SIZE], depbuf[dep + 3*TASK_CHUNK_SIZE])      \
-    depend(inout: depbuf[dep + 4*TASK_CHUNK_SIZE], depbuf[dep + 5*TASK_CHUNK_SIZE], depbuf[dep + 6*TASK_CHUNK_SIZE])   \
-    depend(inout:  depbuf[dep + 7*TASK_CHUNK_SIZE], depbuf[dep + 8*TASK_CHUNK_SIZE], depbuf[dep + 9*TASK_CHUNK_SIZE])  \
-    depend(inout:  depbuf[dep + 10*TASK_CHUNK_SIZE], depbuf[dep + 11*TASK_CHUNK_SIZE], depbuf[dep + 12*TASK_CHUNK_SIZE]) \
-    depend(inout: depbuf[dep + 13*TASK_CHUNK_SIZE])
-    { delay(delaylength); }
-    break;
-    case 16:
-#pragma omp task depend(inout:depbuf[dep], depbuf[dep + TASK_CHUNK_SIZE], depbuf[dep + 2*TASK_CHUNK_SIZE], depbuf[dep + 3*TASK_CHUNK_SIZE])      \
-    depend(inout: depbuf[dep + 4*TASK_CHUNK_SIZE], depbuf[dep + 5*TASK_CHUNK_SIZE], depbuf[dep + 6*TASK_CHUNK_SIZE])    \
-    depend(inout: depbuf[dep + 7*TASK_CHUNK_SIZE], depbuf[dep + 8*TASK_CHUNK_SIZE], depbuf[dep + 9*TASK_CHUNK_SIZE])    \
-    depend(inout: depbuf[dep + 10*TASK_CHUNK_SIZE], depbuf[dep + 11*TASK_CHUNK_SIZE], depbuf[dep + 12*TASK_CHUNK_SIZE]) \
-    depend(inout: depbuf[dep + 13*TASK_CHUNK_SIZE], depbuf[dep + 14*TASK_CHUNK_SIZE], depbuf[dep + 15*TASK_CHUNK_SIZE])
-    { delay(delaylength); }
-    break;
-    case 18:
-#pragma omp task depend(inout: depbuf[dep], depbuf[dep + 1*TASK_CHUNK_SIZE], depbuf[dep + 2*TASK_CHUNK_SIZE], depbuf[dep + 3*TASK_CHUNK_SIZE])   \
-    depend(inout: depbuf[dep + 4*TASK_CHUNK_SIZE], depbuf[dep + 5*TASK_CHUNK_SIZE], depbuf[dep + 6*TASK_CHUNK_SIZE])   \
-    depend(inout: depbuf[dep + 7*TASK_CHUNK_SIZE], depbuf[dep + 8*TASK_CHUNK_SIZE], depbuf[dep + 9*TASK_CHUNK_SIZE])   \
-    depend(inout: depbuf[dep + 10*TASK_CHUNK_SIZE], depbuf[dep + 11*TASK_CHUNK_SIZE], depbuf[dep + 12*TASK_CHUNK_SIZE])\
-    depend(inout: depbuf[dep + 13*TASK_CHUNK_SIZE], depbuf[dep + 14*TASK_CHUNK_SIZE], depbuf[dep + 15*TASK_CHUNK_SIZE])\
-    depend(inout: depbuf[dep + 16*TASK_CHUNK_SIZE], depbuf[dep + 17*TASK_CHUNK_SIZE])
-    { delay(delaylength); }
-    break;
-    case 20:
-#pragma omp task depend(inout: depbuf[dep], depbuf[dep + 1*TASK_CHUNK_SIZE], depbuf[dep + 2*TASK_CHUNK_SIZE], depbuf[dep + 3*TASK_CHUNK_SIZE])   \
-    depend(inout: depbuf[dep + 4*TASK_CHUNK_SIZE], depbuf[dep + 5*TASK_CHUNK_SIZE], depbuf[dep + 6*TASK_CHUNK_SIZE])   \
-    depend(inout: depbuf[dep + 7*TASK_CHUNK_SIZE], depbuf[dep + 8*TASK_CHUNK_SIZE], depbuf[dep + 9*TASK_CHUNK_SIZE])   \
-    depend(inout: depbuf[dep + 10*TASK_CHUNK_SIZE], depbuf[dep + 11*TASK_CHUNK_SIZE], depbuf[dep + 12*TASK_CHUNK_SIZE])\
-    depend(inout: depbuf[dep + 13*TASK_CHUNK_SIZE], depbuf[dep + 14*TASK_CHUNK_SIZE], depbuf[dep + 15*TASK_CHUNK_SIZE])\
-    depend(inout: depbuf[dep + 16*TASK_CHUNK_SIZE], depbuf[dep + 17*TASK_CHUNK_SIZE], depbuf[dep + 18*TASK_CHUNK_SIZE])\
-    depend(inout: depbuf[dep + 19*TASK_CHUNK_SIZE])
-    { delay(delaylength); }
-    break;
-    case 22:
-#pragma omp task depend(inout: depbuf[dep], depbuf[dep + 1*TASK_CHUNK_SIZE], depbuf[dep + 2*TASK_CHUNK_SIZE], depbuf[dep + 3*TASK_CHUNK_SIZE])  \
-    depend(inout: depbuf[dep + 4*TASK_CHUNK_SIZE], depbuf[dep + 5*TASK_CHUNK_SIZE], depbuf[dep + 6*TASK_CHUNK_SIZE])   \
-    depend(inout: depbuf[dep + 7*TASK_CHUNK_SIZE], depbuf[dep + 8*TASK_CHUNK_SIZE], depbuf[dep + 9*TASK_CHUNK_SIZE])   \
-    depend(inout: depbuf[dep + 10*TASK_CHUNK_SIZE], depbuf[dep + 11*TASK_CHUNK_SIZE], depbuf[dep + 12*TASK_CHUNK_SIZE])\
-    depend(inout: depbuf[dep + 13*TASK_CHUNK_SIZE], depbuf[dep + 14*TASK_CHUNK_SIZE], depbuf[dep + 15*TASK_CHUNK_SIZE])\
-    depend(inout: depbuf[dep + 16*TASK_CHUNK_SIZE], depbuf[dep + 17*TASK_CHUNK_SIZE], depbuf[dep + 18*TASK_CHUNK_SIZE])\
-    depend(inout: depbuf[dep + 19*TASK_CHUNK_SIZE], depbuf[dep + 20*TASK_CHUNK_SIZE], depbuf[dep + 21*TASK_CHUNK_SIZE])
-    { delay(delaylength); }
-    break;
-    case 24:
-#pragma omp task depend(inout: depbuf[dep], depbuf[dep + 1*TASK_CHUNK_SIZE], depbuf[dep + 2*TASK_CHUNK_SIZE], depbuf[dep + 3*TASK_CHUNK_SIZE])   \
-    depend(inout:   depbuf[dep + 4*TASK_CHUNK_SIZE], depbuf[dep + 5*TASK_CHUNK_SIZE], depbuf[dep + 6*TASK_CHUNK_SIZE])   \
-    depend(inout: depbuf[dep + 7*TASK_CHUNK_SIZE], depbuf[dep + 8*TASK_CHUNK_SIZE], depbuf[dep + 9*TASK_CHUNK_SIZE])  \
-    depend(inout: depbuf[dep + 10*TASK_CHUNK_SIZE], depbuf[dep + 11*TASK_CHUNK_SIZE], depbuf[dep + 12*TASK_CHUNK_SIZE])\
-    depend(inout: depbuf[dep + 13*TASK_CHUNK_SIZE], depbuf[dep + 14*TASK_CHUNK_SIZE], depbuf[dep + 15*TASK_CHUNK_SIZE])\
-    depend(inout: depbuf[dep + 16*TASK_CHUNK_SIZE], depbuf[dep + 17*TASK_CHUNK_SIZE], depbuf[dep + 18*TASK_CHUNK_SIZE])\
-    depend(inout: depbuf[dep + 19*TASK_CHUNK_SIZE], depbuf[dep + 20*TASK_CHUNK_SIZE], depbuf[dep + 21*TASK_CHUNK_SIZE])\
-    depend(inout: depbuf[dep + 22*TASK_CHUNK_SIZE], depbuf[dep + 23*TASK_CHUNK_SIZE])
-    { delay(delaylength); }
-    break;
-    case 26:
-#pragma omp task depend(inout: depbuf[dep], depbuf[dep + 1*TASK_CHUNK_SIZE], depbuf[dep + 2*TASK_CHUNK_SIZE], depbuf[dep + 3*TASK_CHUNK_SIZE])   \
-    depend(inout: depbuf[dep + 4*TASK_CHUNK_SIZE], depbuf[dep + 5*TASK_CHUNK_SIZE], depbuf[dep + 6*TASK_CHUNK_SIZE])   \
-    depend(inout: depbuf[dep + 7*TASK_CHUNK_SIZE], depbuf[dep + 8*TASK_CHUNK_SIZE], depbuf[dep + 9*TASK_CHUNK_SIZE])   \
-    depend(inout: depbuf[dep + 10*TASK_CHUNK_SIZE], depbuf[dep + 11*TASK_CHUNK_SIZE], depbuf[dep + 12*TASK_CHUNK_SIZE])\
-    depend(inout: depbuf[dep + 13*TASK_CHUNK_SIZE], depbuf[dep + 14*TASK_CHUNK_SIZE], depbuf[dep + 15*TASK_CHUNK_SIZE])\
-    depend(inout: depbuf[dep + 16*TASK_CHUNK_SIZE], depbuf[dep + 17*TASK_CHUNK_SIZE], depbuf[dep + 18*TASK_CHUNK_SIZE])\
-    depend(inout: depbuf[dep + 19*TASK_CHUNK_SIZE], depbuf[dep + 20*TASK_CHUNK_SIZE], depbuf[dep + 21*TASK_CHUNK_SIZE])\
-    depend(inout: depbuf[dep + 22*TASK_CHUNK_SIZE], depbuf[dep + 23*TASK_CHUNK_SIZE], depbuf[dep + 24*TASK_CHUNK_SIZE])\
-    depend(inout: depbuf[dep + 25*TASK_CHUNK_SIZE])
-    { delay(delaylength); }
-    break;
-    case 27:
-#pragma omp task depend(inout: depbuf[dep]                    ,  depbuf[dep + 1*TASK_CHUNK_SIZE],  depbuf[dep + 2*TASK_CHUNK_SIZE],  depbuf[dep + 3*TASK_CHUNK_SIZE])  \
-    depend(inout: depbuf[dep + 4*TASK_CHUNK_SIZE],  depbuf[dep + 5*TASK_CHUNK_SIZE],  depbuf[dep + 6*TASK_CHUNK_SIZE],  depbuf[dep + 7*TASK_CHUNK_SIZE])  \
-    depend(inout: depbuf[dep + 8*TASK_CHUNK_SIZE],  depbuf[dep + 9*TASK_CHUNK_SIZE],  depbuf[dep + 10*TASK_CHUNK_SIZE], depbuf[dep + 11*TASK_CHUNK_SIZE]) \
-    depend(inout: depbuf[dep + 12*TASK_CHUNK_SIZE], depbuf[dep + 13*TASK_CHUNK_SIZE], depbuf[dep + 14*TASK_CHUNK_SIZE], depbuf[dep + 15*TASK_CHUNK_SIZE]) \
-    depend(inout: depbuf[dep + 16*TASK_CHUNK_SIZE], depbuf[dep + 17*TASK_CHUNK_SIZE], depbuf[dep + 18*TASK_CHUNK_SIZE], depbuf[dep + 19*TASK_CHUNK_SIZE]) \
-    depend(inout: depbuf[dep + 20*TASK_CHUNK_SIZE], depbuf[dep + 21*TASK_CHUNK_SIZE], depbuf[dep + 22*TASK_CHUNK_SIZE], depbuf[dep + 23*TASK_CHUNK_SIZE]) \
-    depend(inout: depbuf[dep + 24*TASK_CHUNK_SIZE], depbuf[dep + 25*TASK_CHUNK_SIZE], depbuf[dep + 26*TASK_CHUNK_SIZE])
-    { delay(delaylength); }
-    break;
-    case 32:
-#pragma omp task depend(inout: depbuf[dep]                    ,  depbuf[dep + 1*TASK_CHUNK_SIZE],  depbuf[dep + 2*TASK_CHUNK_SIZE],  depbuf[dep + 3*TASK_CHUNK_SIZE])  \
-    depend(inout: depbuf[dep + 4*TASK_CHUNK_SIZE],  depbuf[dep + 5*TASK_CHUNK_SIZE],  depbuf[dep + 6*TASK_CHUNK_SIZE],  depbuf[dep + 7*TASK_CHUNK_SIZE])  \
-    depend(inout: depbuf[dep + 8*TASK_CHUNK_SIZE],  depbuf[dep + 9*TASK_CHUNK_SIZE],  depbuf[dep + 10*TASK_CHUNK_SIZE], depbuf[dep + 11*TASK_CHUNK_SIZE]) \
-    depend(inout: depbuf[dep + 12*TASK_CHUNK_SIZE], depbuf[dep + 13*TASK_CHUNK_SIZE], depbuf[dep + 14*TASK_CHUNK_SIZE], depbuf[dep + 15*TASK_CHUNK_SIZE]) \
-    depend(inout: depbuf[dep + 16*TASK_CHUNK_SIZE], depbuf[dep + 17*TASK_CHUNK_SIZE], depbuf[dep + 18*TASK_CHUNK_SIZE], depbuf[dep + 19*TASK_CHUNK_SIZE]) \
-    depend(inout: depbuf[dep + 20*TASK_CHUNK_SIZE], depbuf[dep + 21*TASK_CHUNK_SIZE], depbuf[dep + 22*TASK_CHUNK_SIZE], depbuf[dep + 23*TASK_CHUNK_SIZE]) \
-    depend(inout: depbuf[dep + 24*TASK_CHUNK_SIZE], depbuf[dep + 25*TASK_CHUNK_SIZE], depbuf[dep + 26*TASK_CHUNK_SIZE], depbuf[dep + 27*TASK_CHUNK_SIZE]) \
-    depend(inout: depbuf[dep + 28*TASK_CHUNK_SIZE], depbuf[dep + 29*TASK_CHUNK_SIZE], depbuf[dep + 30*TASK_CHUNK_SIZE], depbuf[dep + 31*TASK_CHUNK_SIZE])
-    { delay(delaylength); }
-    break;
-
-
-    }
-    //                    delay(delaylength);
-  }
-#pragma omp taskwait
-}
-
-/**
- * Create tasks with NumDeps OUT dependencies
- * and exactly one IN dependency.
- * On the last level, the OUT dependencies will not
- * be matched by any IN dependencies.
- */
-template<int NumDeps>
-void testTaskDependencyFanOutMaster() {
-  const char *depbuf = (const char*)1;
-  int dep = 0;
-#pragma omp master
-  {
-    for (int i = 0; i < innerreps; i++) {
-      int indep = i - 1;
-      switch(NumDeps) {
-      case 1:
-#pragma omp task depend(out: depbuf[dep + 0]) depend(in: depbuf[indep])
-      { delay(delaylength); }
-      break;
-      case 2:
-#pragma omp task depend(out: depbuf[dep + 0], depbuf[dep + 1]) depend(in: depbuf[indep])
-      { delay(delaylength); }
-      break;
-      case 4:
-#pragma omp task depend(out: depbuf[dep + 0], depbuf[dep + 1], depbuf[dep + 2], depbuf[dep + 3]) depend(in: depbuf[indep])
-      { delay(delaylength); }
-      break;
-      case 8:
-#pragma omp task depend(out: depbuf[dep + 0], depbuf[dep + 1], depbuf[dep + 2], depbuf[dep + 3], depbuf[dep + 4], depbuf[dep + 5], depbuf[dep + 6], depbuf[dep + 7]) \
-    depend(in: depbuf[indep])
-      { delay(delaylength); }
-      break;
-      case 16:
-#pragma omp task depend(out: depbuf[dep + 0], depbuf[dep + 1], depbuf[dep + 2], depbuf[dep + 3], depbuf[dep + 4], depbuf[dep + 5], depbuf[dep + 6], depbuf[dep + 7]) \
-    depend(out: depbuf[dep + 8], depbuf[dep + 9], depbuf[dep + 10], depbuf[dep + 11], depbuf[dep + 12], depbuf[dep + 13], depbuf[dep + 14], depbuf[dep + 15]) \
-    depend(in: depbuf[indep])
-      { delay(delaylength); }
-      break;
-      case 24:
-#pragma omp task depend(out: depbuf[dep + 0], depbuf[dep + 1], depbuf[dep + 2], depbuf[dep + 3], depbuf[dep + 4], depbuf[dep + 5], depbuf[dep + 6], depbuf[dep + 7])\
-    depend(out: depbuf[dep + 8], depbuf[dep + 9], depbuf[dep + 10], depbuf[dep + 11], depbuf[dep + 12], depbuf[dep + 13], depbuf[dep + 14], depbuf[dep + 15])\
-    depend(out: depbuf[dep + 16], depbuf[dep + 17], depbuf[dep + 18], depbuf[dep + 19], depbuf[dep + 20], depbuf[dep + 21], depbuf[dep + 22], depbuf[dep + 23])\
-    depend(in: depbuf[indep])
-      { delay(delaylength); }
-      break;
-
-      case 32:
-#pragma omp task depend(out: depbuf[dep + 0], depbuf[dep + 1], depbuf[dep + 2], depbuf[dep + 3], depbuf[dep + 4], depbuf[dep + 5], depbuf[dep + 6], depbuf[dep + 7])\
-    depend(out: depbuf[dep + 8], depbuf[dep + 9], depbuf[dep + 10], depbuf[dep + 11], depbuf[dep + 12], depbuf[dep + 13], depbuf[dep + 14], depbuf[dep + 15])\
-    depend(out: depbuf[dep + 16], depbuf[dep + 17], depbuf[dep + 18], depbuf[dep + 19], depbuf[dep + 20], depbuf[dep + 21], depbuf[dep + 22], depbuf[dep + 23])\
-    depend(out: depbuf[dep + 24], depbuf[dep + 25], depbuf[dep + 26], depbuf[dep + 27], depbuf[dep + 28], depbuf[dep + 29], depbuf[dep + 30], depbuf[dep + 31])\
-    depend(in: depbuf[indep])
-      { delay(delaylength); }
-      break;
-      }
-      dep += NumDeps;
-    }
-  }
-#pragma omp barrier
-#pragma omp taskwait
-}
-
-
-/**
- * Create tasks with NumDeps IN dependencies
- * and exactly one OUT dependency.
- * TODO: multiple tasks are required to release one task?
- */
-template<int NumDeps>
-void testTaskDependencyFanIn() {
-
-  for (int i = 0; i < innerreps / (NumDeps); i++) {
-    int dep = (i % TASK_CHUNK_SIZE) * omp_get_thread_num();
-
-    for (int j = 0; j < NumDeps; ++j) {
-      int outdep = ((i + j) % TASK_CHUNK_SIZE) * omp_get_thread_num();
-
-      switch(NumDeps){
-      case 1:
-#pragma omp task depend(in: depbuf[dep + 0]) depend(out: depbuf[outdep])
-      { delay(delaylength); }
-      break;
-      case 2:
-#pragma omp task depend(in: depbuf[dep + 0], depbuf[dep + 1]) depend(out: depbuf[outdep])
-      { delay(delaylength); }
-      break;
-      case 4:
-#pragma omp task depend(in: depbuf[dep + 0], depbuf[dep + 1], depbuf[dep + 2], depbuf[dep + 3]) depend(out: depbuf[outdep])
-      { delay(delaylength); }
-      break;
-      case 8:
-#pragma omp task depend(in: depbuf[dep + 0], depbuf[dep + 1], depbuf[dep + 2], depbuf[dep + 3], depbuf[dep + 4], depbuf[dep + 5], depbuf[dep + 6], depbuf[dep + 7])\
-    depend(out: depbuf[outdep])
-      { delay(delaylength); }
-      break;
-      case 16:
-#pragma omp task depend(in: depbuf[dep + 0], depbuf[dep + 1], depbuf[dep + 2], depbuf[dep + 3], depbuf[dep + 4], depbuf[dep + 5], depbuf[dep + 6], depbuf[dep + 7]) \
-    depend(in: depbuf[dep + 8], depbuf[dep + 9], depbuf[dep + 10], depbuf[dep + 11], depbuf[dep + 12], depbuf[dep + 13], depbuf[dep + 14], depbuf[dep + 15])\
-    depend(out: depbuf[outdep])
-      { delay(delaylength); }
-      break;
-      case 24:
-#pragma omp task depend(in: depbuf[dep + 0], depbuf[dep + 1], depbuf[dep + 2], depbuf[dep + 3], depbuf[dep + 4], depbuf[dep + 5], depbuf[dep + 6], depbuf[dep + 7])\
-    depend(in: depbuf[dep + 8], depbuf[dep + 9], depbuf[dep + 10], depbuf[dep + 11], depbuf[dep + 12], depbuf[dep + 13], depbuf[dep + 14], depbuf[dep + 15])\
-    depend(in: depbuf[dep + 16], depbuf[dep + 17], depbuf[dep + 18], depbuf[dep + 19], depbuf[dep + 20], depbuf[dep + 21], depbuf[dep + 22], depbuf[dep + 23])\
-    depend(out: depbuf[outdep])
-      { delay(delaylength); }
-      break;
-      case 32:
-#pragma omp task depend(in: depbuf[dep + 0], depbuf[dep + 1], depbuf[dep + 2], depbuf[dep + 3], depbuf[dep + 4], depbuf[dep + 5], depbuf[dep + 6], depbuf[dep + 7])\
-    depend(in: depbuf[dep + 8], depbuf[dep + 9], depbuf[dep + 10], depbuf[dep + 11], depbuf[dep + 12], depbuf[dep + 13], depbuf[dep + 14], depbuf[dep + 15])\
-    depend(in: depbuf[dep + 16], depbuf[dep + 17], depbuf[dep + 18], depbuf[dep + 19], depbuf[dep + 20], depbuf[dep + 21], depbuf[dep + 22], depbuf[dep + 23])\
-    depend(in: depbuf[dep + 24], depbuf[dep + 25], depbuf[dep + 26], depbuf[dep + 27], depbuf[dep + 28], depbuf[dep + 29], depbuf[dep + 30], depbuf[dep + 31])\
-    depend(out: depbuf[outdep])
-      { delay(delaylength); }
-      break;
-      }
-    }
-    //                    delay(delaylength);
-  }
-#pragma omp taskwait
-}
-
-
-/**
- * Create a task graph in which every task has 1 in-dep and
- * NumDeps out-deps.
- * TODO: Is it OK if multiple tasks release another task?
- */
-template<int NumDeps>
-void testTaskDependencyFanOut() {
-
-  for (int i = 0; i < innerreps / (NumDeps); i++) {
-
-    int dep = (i % TASK_CHUNK_SIZE) * omp_get_thread_num();
-    for (int j = 0; j < NumDeps; ++j) {
-
-      int indep = ((i + j) % TASK_CHUNK_SIZE) * omp_get_thread_num();
-      switch(NumDeps){
-      case 1:
-#pragma omp task depend(out: depbuf[dep + 0]) depend(in: depbuf[indep])
-      { delay(delaylength); }
-      break;
-      case 2:
-#pragma omp task depend(out: depbuf[dep + 0], depbuf[dep + 1]) depend(in: depbuf[indep])
-      { delay(delaylength); }
-      break;
-      case 4:
-#pragma omp task depend(out: depbuf[dep + 0], depbuf[dep + 1], depbuf[dep + 2], depbuf[dep + 3]) depend(in: depbuf[indep])
-      { delay(delaylength); }
-      break;
-      case 8:
-#pragma omp task depend(out: depbuf[dep + 0], depbuf[dep + 1], depbuf[dep + 2], depbuf[dep + 3], depbuf[dep + 4], depbuf[dep + 5], depbuf[dep + 6], depbuf[dep + 7]) \
-    depend(in: depbuf[indep])
-      { delay(delaylength); }
-      break;
-      case 16:
-#pragma omp task depend(out: depbuf[dep + 0], depbuf[dep + 1], depbuf[dep + 2], depbuf[dep + 3], depbuf[dep + 4], depbuf[dep + 5], depbuf[dep + 6], depbuf[dep + 7]) \
-    depend(out: depbuf[dep + 8], depbuf[dep + 9], depbuf[dep + 10], depbuf[dep + 11], depbuf[dep + 12], depbuf[dep + 13], depbuf[dep + 14], depbuf[dep + 15]) \
-    depend(in: depbuf[indep])
-      { delay(delaylength); }
-      break;
-      case 24:
-#pragma omp task depend(out: depbuf[dep + 0], depbuf[dep + 1], depbuf[dep + 2], depbuf[dep + 3], depbuf[dep + 4], depbuf[dep + 5], depbuf[dep + 6], depbuf[dep + 7])\
-    depend(out: depbuf[dep + 8], depbuf[dep + 9], depbuf[dep + 10], depbuf[dep + 11], depbuf[dep + 12], depbuf[dep + 13], depbuf[dep + 14], depbuf[dep + 15])\
-    depend(out: depbuf[dep + 16], depbuf[dep + 17], depbuf[dep + 18], depbuf[dep + 19], depbuf[dep + 20], depbuf[dep + 21], depbuf[dep + 22], depbuf[dep + 23])\
-    depend(in: depbuf[indep])
-      { delay(delaylength); }
-      break;
-
-      case 32:
-#pragma omp task depend(out: depbuf[dep + 0], depbuf[dep + 1], depbuf[dep + 2], depbuf[dep + 3], depbuf[dep + 4], depbuf[dep + 5], depbuf[dep + 6], depbuf[dep + 7])\
-    depend(out: depbuf[dep + 8], depbuf[dep + 9], depbuf[dep + 10], depbuf[dep + 11], depbuf[dep + 12], depbuf[dep + 13], depbuf[dep + 14], depbuf[dep + 15])\
-    depend(out: depbuf[dep + 16], depbuf[dep + 17], depbuf[dep + 18], depbuf[dep + 19], depbuf[dep + 20], depbuf[dep + 21], depbuf[dep + 22], depbuf[dep + 23])\
-    depend(out: depbuf[dep + 24], depbuf[dep + 25], depbuf[dep + 26], depbuf[dep + 27], depbuf[dep + 28], depbuf[dep + 29], depbuf[dep + 30], depbuf[dep + 31])\
-    depend(in: depbuf[indep])
-      { delay(delaylength); }
-      break;
-      }
-    }
-  }
-#pragma omp taskwait
-}
-
-
-template<int NumDeps>
-void testTaskDependencyTree() {
-  for (int i = 0; i < innerreps / MAX_DEPS; i++) {
-    int dep = MAX_DEPS*i;
-
-    switch(NumDeps){
-    case 0:
-#pragma omp task
-    { delay(delaylength); }
-    break;
-    case 1:
-#pragma omp task depend(out: depbuf[dep +i])
-    { delay(delaylength); }
-    break;
-    case 2:
-#pragma omp task depend(out: depbuf[dep +i],depbuf[dep +i+1])
-    { delay(delaylength); }
-    break;
-    case 4:
-#pragma omp task depend(out: depbuf[dep +i], depbuf[dep +i+1], depbuf[dep +i+2], depbuf[dep +i+3])
-    { delay(delaylength); }
-    break;
-    case 8:
-#pragma omp task depend(out: depbuf[dep +i], depbuf[dep +i+1], depbuf[dep +i+2], depbuf[dep +i+3], depbuf[dep +i+4], depbuf[dep +i+5], depbuf[dep +i+6], depbuf[dep +i+7])
-    { delay(delaylength); }
-    break;
-    case 16:
-#pragma omp task depend(out: depbuf[dep +i], depbuf[dep +i+1], depbuf[dep +i+2], depbuf[dep +i+3], depbuf[dep +i+4], depbuf[dep +i+5], depbuf[dep +i+6], depbuf[dep +i+7])\
-    depend(out: depbuf[dep +i+9], depbuf[dep +i+10], depbuf[dep +i+11], depbuf[dep +i+12], depbuf[dep +i+13], depbuf[dep +i+14], depbuf[dep +i+15], depbuf[dep +i+16])
-    { delay(delaylength); }
-    break;
-    case 24:
-#pragma omp task depend(out: depbuf[dep +i], depbuf[dep +i+1], depbuf[dep +i+2], depbuf[dep +i+3], depbuf[dep +i+4], depbuf[dep +i+5], depbuf[dep +i+6], depbuf[dep +i+7])\
-    depend(out: depbuf[dep +i+9], depbuf[dep +i+10], depbuf[dep +i+11], depbuf[dep +i+12], depbuf[dep +i+13], depbuf[dep +i+14], depbuf[dep +i+15], depbuf[dep +i+16]) \
-    depend(out: depbuf[dep +i+17], depbuf[dep +i+18], depbuf[dep +i+19], depbuf[dep +i+20], depbuf[dep +i+21], depbuf[dep +i+22], depbuf[dep +i+23], depbuf[dep +i+24])
-    { delay(delaylength); }
-    break;
-    case 32:
-#pragma omp task depend(out: depbuf[dep +i], depbuf[dep +i+1], depbuf[dep +i+2], depbuf[dep +i+3], depbuf[dep +i+4], depbuf[dep +i+5], depbuf[dep +i+6], depbuf[dep +i+7])\
-    depend(out: depbuf[dep +i+9], depbuf[dep +i+10], depbuf[dep +i+11], depbuf[dep +i+12], depbuf[dep +i+13], depbuf[dep +i+14], depbuf[dep +i+15], depbuf[dep +i+16]) \
-    depend(out: depbuf[dep +i+17], depbuf[dep +i+18], depbuf[dep +i+19], depbuf[dep +i+20], depbuf[dep +i+21], depbuf[dep +i+22], depbuf[dep +i+23], depbuf[dep +i+24]) \
-    depend(out: depbuf[dep +i+25], depbuf[dep +i+26], depbuf[dep +i+27], depbuf[dep +i+28], depbuf[dep +i+29], depbuf[dep +i+30], depbuf[dep +i+31], depbuf[dep +i+32])
-    { delay(delaylength); }
-    break;
-    }
-
-    for (int j = 0; j < MAX_DEPS-1; j++) {
-      if(j<NumDeps){
-#pragma omp task depend(in: depbuf[dep+j])
-        { delay(delaylength); }
-      }else{
-#pragma omp task
-        { delay(delaylength); }
-      }
-    }
-  }
-#pragma omp taskwait
-}
-
-
-
-template<int NumDeps>
-void testTaskDependencyReversedTree() {
-  for (int i = 0; i < innerreps / MAX_DEPS; i++) {
-    int dep = MAX_DEPS*i;
-
-    for (int j = 0; j < MAX_DEPS-1; j++) {
-      if(j<NumDeps){
-#pragma omp task depend(out: depbuf[dep+j])
-        { delay(delaylength); }
-      }else{
-#pragma omp task
-        { delay(delaylength); }
-      }
-    }
-
-    switch(NumDeps){
-    case 0:
-#pragma omp task
-    { delay(delaylength); }
-    break;
-    case 1:
-#pragma omp task depend(in: depbuf[dep +i])
-    { delay(delaylength); }
-    break;
-    case 2:
-#pragma omp task depend(in: depbuf[dep +i],depbuf[dep +i+1])
-    { delay(delaylength); }
-    break;
-    case 4:
-#pragma omp task depend(in: depbuf[dep +i], depbuf[dep +i+1], depbuf[dep +i+2], depbuf[dep +i+3])
-    { delay(delaylength); }
-    break;
-    case 8:
-#pragma omp task depend(in: depbuf[dep +i], depbuf[dep +i+1], depbuf[dep +i+2], depbuf[dep +i+3], depbuf[dep +i+4], depbuf[dep +i+5], depbuf[dep +i+6], depbuf[dep +i+7])
-    { delay(delaylength); }
-    break;
-    case 16:
-#pragma omp task depend(in: depbuf[dep +i], depbuf[dep +i+1], depbuf[dep +i+2], depbuf[dep +i+3], depbuf[dep +i+4], depbuf[dep +i+5], depbuf[dep +i+6], depbuf[dep +i+7])\
-    depend(in: depbuf[dep +i+9], depbuf[dep +i+10], depbuf[dep +i+11], depbuf[dep +i+12], depbuf[dep +i+13], depbuf[dep +i+14], depbuf[dep +i+15], depbuf[dep +i+16])
-    { delay(delaylength); }
-    break;
-    case 24:
-#pragma omp task depend(in: depbuf[dep +i], depbuf[dep +i+1], depbuf[dep +i+2], depbuf[dep +i+3], depbuf[dep +i+4], depbuf[dep +i+5], depbuf[dep +i+6], depbuf[dep +i+7])\
-    depend(in: depbuf[dep +i+9], depbuf[dep +i+10], depbuf[dep +i+11], depbuf[dep +i+12], depbuf[dep +i+13], depbuf[dep +i+14], depbuf[dep +i+15], depbuf[dep +i+16]) \
-    depend(in: depbuf[dep +i+17], depbuf[dep +i+18], depbuf[dep +i+19], depbuf[dep +i+20], depbuf[dep +i+21], depbuf[dep +i+22], depbuf[dep +i+23], depbuf[dep +i+24])
-    { delay(delaylength); }
-    break;
-    case 32:
-#pragma omp task depend(in: depbuf[dep +i], depbuf[dep +i+1], depbuf[dep +i+2], depbuf[dep +i+3], depbuf[dep +i+4], depbuf[dep +i+5], depbuf[dep +i+6], depbuf[dep +i+7])\
-    depend(in: depbuf[dep +i+9], depbuf[dep +i+10], depbuf[dep +i+11], depbuf[dep +i+12], depbuf[dep +i+13], depbuf[dep +i+14], depbuf[dep +i+15], depbuf[dep +i+16]) \
-    depend(in: depbuf[dep +i+17], depbuf[dep +i+18], depbuf[dep +i+19], depbuf[dep +i+20], depbuf[dep +i+21], depbuf[dep +i+22], depbuf[dep +i+23], depbuf[dep +i+24]) \
-    depend(in: depbuf[dep +i+25], depbuf[dep +i+26], depbuf[dep +i+27], depbuf[dep +i+28], depbuf[dep +i+29], depbuf[dep +i+30], depbuf[dep +i+31], depbuf[dep +i+32])
-    { delay(delaylength); }
-    break;
-    }
-  }
-#pragma omp taskwait
-}
-
-
 
 template<int NumDeps,int stride>
 void testTaskDependencyNeighbors() {
@@ -924,14 +329,14 @@ void testTaskDependencyNeighborsMaster() {
         //printf("task:%i dep_in:%i dep_out:%i\n", j, dep_in, dep_out);
         switch(NumDeps){
         case 0:
-#pragma omp task
-        { delay(delaylength); }
-        break;
+#pragma omp task depend(out: depbuf[dep_out]) depend(in: depbuf[dep_in])
+          { delay(delaylength); }
+          break;
         case 1:
 #pragma omp task depend(out: depbuf[dep_out])\
-    depend(in: depbuf[dep_in+1])
-        { delay(delaylength); }
-        break;
+    depend(in: depbuf[dep_in], depbuf[dep_in+1])
+          { delay(delaylength); }
+          break;
         case 2:
 #pragma omp task depend(out: depbuf[dep_out])\
     depend(in: depbuf[dep_in+1], depbuf[dep_in], depbuf[dep_in-1] )
@@ -940,39 +345,38 @@ void testTaskDependencyNeighborsMaster() {
         case 4:
 #pragma omp task depend(out: depbuf[dep_out])\
     depend(in:  depbuf[dep_in+2], depbuf[dep_in+1], depbuf[dep_in], depbuf[dep_in-1], depbuf[dep_in-2])
-        { delay(delaylength); }
-        break;
+          { delay(delaylength); }
+          break;
         case 8:
 #pragma omp task depend(out: depbuf[dep_out])\
     depend(in:   depbuf[dep_in+4], depbuf[dep_in+3], depbuf[dep_in+2], depbuf[dep_in+1], depbuf[dep_in], depbuf[dep_in-1], depbuf[dep_in-2], depbuf[dep_in-3], depbuf[dep_in-4])
-        { delay(delaylength); }
-        break;
+          { delay(delaylength); }
+          break;
         case 16:
 #pragma omp task depend(out: depbuf[dep_out])\
     depend(in:   depbuf[dep_in+4], depbuf[dep_in+3], depbuf[dep_in+2], depbuf[dep_in+1], depbuf[dep_in], depbuf[dep_in-1], depbuf[dep_in-2], depbuf[dep_in-3], depbuf[dep_in-4])\
     depend(in:   depbuf[dep_in+8], depbuf[dep_in+7], depbuf[dep_in+6], depbuf[dep_in+5], depbuf[dep_in-5], depbuf[dep_in-6], depbuf[dep_in-7], depbuf[dep_in-8])
-        { delay(delaylength); }
-        break;
+          { delay(delaylength); }
+          break;
         case 24:
 #pragma omp task depend(out: depbuf[dep_out])\
     depend(in:   depbuf[dep_in+4], depbuf[dep_in+3], depbuf[dep_in+2], depbuf[dep_in+1], depbuf[dep_in], depbuf[dep_in-1], depbuf[dep_in-2], depbuf[dep_in-3], depbuf[dep_in-4])\
     depend(in:   depbuf[dep_in+8], depbuf[dep_in+7], depbuf[dep_in+6], depbuf[dep_in+5], depbuf[dep_in-5], depbuf[dep_in-6], depbuf[dep_in-7], depbuf[dep_in-8])\
     depend(in:   depbuf[dep_in+12], depbuf[dep_in+11], depbuf[dep_in+10], depbuf[dep_in+9], depbuf[dep_in-9], depbuf[dep_in-10], depbuf[dep_in-11], depbuf[dep_in-12])
-        { delay(delaylength); }
-        break;
+          { delay(delaylength); }
+          break;
         case 32:
 #pragma omp task depend(out: depbuf[dep_out])\
     depend(in:   depbuf[dep_in+4], depbuf[dep_in+3], depbuf[dep_in+2], depbuf[dep_in+1], depbuf[dep_in], depbuf[dep_in-1], depbuf[dep_in-2], depbuf[dep_in-3], depbuf[dep_in-4])\
     depend(in:   depbuf[dep_in+8], depbuf[dep_in+7], depbuf[dep_in+6], depbuf[dep_in+5], depbuf[dep_in-5], depbuf[dep_in-6], depbuf[dep_in-7], depbuf[dep_in-8])\
     depend(in:   depbuf[dep_in+12], depbuf[dep_in+11], depbuf[dep_in+10], depbuf[dep_in+9], depbuf[dep_in-9], depbuf[dep_in-10], depbuf[dep_in-11], depbuf[dep_in-12])\
     depend(in:   depbuf[dep_in+16], depbuf[dep_in+15], depbuf[dep_in+14], depbuf[dep_in+13], depbuf[dep_in-13], depbuf[dep_in-14], depbuf[dep_in-15], depbuf[dep_in-16])
-        { delay(delaylength); }
-        break;
+          { delay(delaylength); }
+          break;
         }
-
       }
-    }
 #pragma omp taskwait
+    }
   }
 }
 
@@ -986,60 +390,60 @@ void testTaskDependencyNeighborsReverseMaster() {
       for (int j = 0; j < numberoftasks; j++) {
         //int dep = j* NumDeps/2;
         int width = TASK_GRAPH_WIDTH * NumDeps;
-        int dep_in =  ((((j * NumDeps) % width) +                       // Initial position with wrap-around
+        int dep_in =  ((((j * NumDeps) % width) +         // Initial position with wrap-around
             ((j / TASK_GRAPH_WIDTH) % 2 ? width : 0)));   // determine one of two buffers
         int dep_out = ((((j * NumDeps) % width) + ((j / TASK_GRAPH_WIDTH) % 2 ? 0 : width)));
 
         switch(NumDeps){
         case 0:
 #pragma omp task
-        { delay(delaylength); }
-        break;
+          { delay(delaylength); }
+          break;
         case 1:
 #pragma omp task depend(inout: depbuf[dep_in])\
     depend(out: depbuf[dep_out+1])
-        { delay(delaylength); }
-        break;
+          { delay(delaylength); }
+          break;
         case 2:
 #pragma omp task depend(inout: depbuf[dep_in])\
     depend(out: depbuf[dep_out+1], depbuf[dep_out-1] )
-        { delay(delaylength); }
-        break;
+          { delay(delaylength); }
+          break;
         case 4:
 #pragma omp task depend(inout: depbuf[dep_in])\
     depend(out:  depbuf[dep_out+2], depbuf[dep_out+1], depbuf[dep_out-1], depbuf[dep_out-2])
-        { delay(delaylength); }
-        break;
+          { delay(delaylength); }
+          break;
         case 8:
 #pragma omp task depend(inout: depbuf[dep_in])\
     depend(out:   depbuf[dep_out+4], depbuf[dep_out+3], depbuf[dep_out+2], depbuf[dep_out+1], depbuf[dep_out-1], depbuf[dep_out-2], depbuf[dep_out-3], depbuf[dep_out-4])
-        { delay(delaylength); }
-        break;
+          { delay(delaylength); }
+          break;
         case 16:
 #pragma omp task depend(inout: depbuf[dep_in])\
     depend(out:   depbuf[dep_out+4], depbuf[dep_out+3], depbuf[dep_out+2], depbuf[dep_out+1], depbuf[dep_out-1], depbuf[dep_out-2], depbuf[dep_out-3], depbuf[dep_out-4])\
     depend(out:   depbuf[dep_out+8], depbuf[dep_out+7], depbuf[dep_out+6], depbuf[dep_out+5], depbuf[dep_out-5], depbuf[dep_out-6], depbuf[dep_out-7], depbuf[dep_out-8])
-        { delay(delaylength); }
-        break;
+          { delay(delaylength); }
+          break;
         case 24:
 #pragma omp task depend(inout: depbuf[dep_in])\
     depend(out:   depbuf[dep_out+4], depbuf[dep_out+3], depbuf[dep_out+2], depbuf[dep_out+1], depbuf[dep_out-1], depbuf[dep_out-2], depbuf[dep_out-3], depbuf[dep_out-4])\
     depend(out:   depbuf[dep_out+8], depbuf[dep_out+7], depbuf[dep_out+6], depbuf[dep_out+5], depbuf[dep_out-5], depbuf[dep_out-6], depbuf[dep_out-7], depbuf[dep_out-8])\
     depend(out:   depbuf[dep_out+12], depbuf[dep_out+11], depbuf[dep_out+10], depbuf[dep_out+9], depbuf[dep_out-9], depbuf[dep_out-10], depbuf[dep_out-11], depbuf[dep_out-12])
-        { delay(delaylength); }
-        break;
+          { delay(delaylength); }
+          break;
         case 32:
 #pragma omp task depend(inout: depbuf[dep_in])\
     depend(out:   depbuf[dep_out+4], depbuf[dep_out+3], depbuf[dep_out+2], depbuf[dep_out+1], depbuf[dep_out-1], depbuf[dep_out-2], depbuf[dep_out-3], depbuf[dep_out-4])\
     depend(out:   depbuf[dep_out+8], depbuf[dep_out+7], depbuf[dep_out+6], depbuf[dep_out+5], depbuf[dep_out-5], depbuf[dep_out-6], depbuf[dep_out-7], depbuf[dep_out-8])\
     depend(out:   depbuf[dep_out+12], depbuf[dep_out+11], depbuf[dep_out+10], depbuf[dep_out+9], depbuf[dep_out-9], depbuf[dep_out-10], depbuf[dep_out-11], depbuf[dep_out-12])\
     depend(out:   depbuf[dep_out+16], depbuf[dep_out+15], depbuf[dep_out+14], depbuf[dep_out+13], depbuf[dep_out-13], depbuf[dep_out-14], depbuf[dep_out-15], depbuf[dep_out-16])
-        { delay(delaylength); }
-        break;
+          { delay(delaylength); }
+          break;
         }
       }
-    }
 #pragma omp taskwait
+    }
   }
 }
 
@@ -1053,47 +457,48 @@ void testTaskDependencyOutChainMaster() {
       for (int j = 0; j < numberoftasks; j++) {
         int dep = 0; // in the chain, all tasks are connected along one line
         switch(NumDeps){
+        case 0:
+#pragma omp task
+          { delay(delaylength); }
+          break;
         case 1:
 #pragma omp task depend(out: depbuf[dep + 0]) 
-        { delay(delaylength); }
-        break;
+          { delay(delaylength); }
+          break;
         case 2:
 #pragma omp task depend(out: depbuf[dep + 0], depbuf[dep + 1]) 
-        { delay(delaylength); }
-        break;
+          { delay(delaylength); }
+          break;
         case 4:
 #pragma omp task depend(out: depbuf[dep + 0], depbuf[dep + 1], depbuf[dep + 2], depbuf[dep + 3]) 
-        { delay(delaylength); }
-        break;
+          { delay(delaylength); }
+          break;
         case 8:
 #pragma omp task depend(out: depbuf[dep + 0], depbuf[dep + 1], depbuf[dep + 2], depbuf[dep + 3], depbuf[dep + 4], depbuf[dep + 5], depbuf[dep + 6], depbuf[dep + 7]) 
-        { delay(delaylength); }
-        break;
+          { delay(delaylength); }
+          break;
         case 16:
 #pragma omp task depend(out: depbuf[dep + 0], depbuf[dep + 1], depbuf[dep + 2], depbuf[dep + 3], depbuf[dep + 4], depbuf[dep + 5], depbuf[dep + 6], depbuf[dep + 7]) \
     depend(out: depbuf[dep + 8], depbuf[dep + 9], depbuf[dep + 10], depbuf[dep + 11], depbuf[dep + 12], depbuf[dep + 13], depbuf[dep + 14], depbuf[dep + 15])
-        { delay(delaylength); }
-        break;
+          { delay(delaylength); }
+          break;
         case 24:
 #pragma omp task depend(out: depbuf[dep + 0], depbuf[dep + 1], depbuf[dep + 2], depbuf[dep + 3], depbuf[dep + 4], depbuf[dep + 5], depbuf[dep + 6], depbuf[dep + 7])\
     depend(out: depbuf[dep + 8], depbuf[dep + 9], depbuf[dep + 10], depbuf[dep + 11], depbuf[dep + 12], depbuf[dep + 13], depbuf[dep + 14], depbuf[dep + 15])\
     depend(out: depbuf[dep + 16], depbuf[dep + 17], depbuf[dep + 18], depbuf[dep + 19], depbuf[dep + 20], depbuf[dep + 21], depbuf[dep + 22], depbuf[dep + 23])
-        { delay(delaylength); }
-        break;
-
+          { delay(delaylength); }
+          break;
         case 32:
 #pragma omp task depend(out: depbuf[dep + 0], depbuf[dep + 1], depbuf[dep + 2], depbuf[dep + 3], depbuf[dep + 4], depbuf[dep + 5], depbuf[dep + 6], depbuf[dep + 7])\
     depend(out: depbuf[dep + 8], depbuf[dep + 9], depbuf[dep + 10], depbuf[dep + 11], depbuf[dep + 12], depbuf[dep + 13], depbuf[dep + 14], depbuf[dep + 15])\
     depend(out: depbuf[dep + 16], depbuf[dep + 17], depbuf[dep + 18], depbuf[dep + 19], depbuf[dep + 20], depbuf[dep + 21], depbuf[dep + 22], depbuf[dep + 23])\
     depend(out: depbuf[dep + 24], depbuf[dep + 25], depbuf[dep + 26], depbuf[dep + 27], depbuf[dep + 28], depbuf[dep + 29], depbuf[dep + 30], depbuf[dep + 31])
-        { delay(delaylength); }
-        break;
+          { delay(delaylength); }
+          break;
         }
-
-
       }
-    }
 #pragma omp taskwait
+    }
   }
 }
 
@@ -1105,49 +510,52 @@ void testTaskDependencyInChainMaster() {
       for (int j = 0; j < numberoftasks; j++) {
         int dep = 0;
         switch(NumDeps){
+        case 0:
+#pragma omp task
+          { delay(delaylength); }
+          break;
         case 1:
 #pragma omp task depend(inout: depbuf[dep + 0]) 
-        { delay(delaylength); }
-        break;
+          { delay(delaylength); }
+          break;
         case 2:
 #pragma omp task depend(in: depbuf[dep + 0]) depend(inout: depbuf[dep + 1]) 
-        { delay(delaylength); }
-        break;
+          { delay(delaylength); }
+          break;
         case 4:
 #pragma omp task depend(in: depbuf[dep + 0], depbuf[dep + 1], depbuf[dep + 2]) depend(inout: depbuf[dep + 3]) 
-        { delay(delaylength); }
-        break;
+          { delay(delaylength); }
+          break;
         case 8:
 #pragma omp task depend(in: depbuf[dep + 0], depbuf[dep + 1], depbuf[dep + 2], depbuf[dep + 3], depbuf[dep + 4], depbuf[dep + 5], depbuf[dep + 6]) \
     depend(inout: depbuf[dep + 7])
-        { delay(delaylength); }
-        break;
+          { delay(delaylength); }
+          break;
         case 16:
 #pragma omp task depend(in: depbuf[dep + 0], depbuf[dep + 1], depbuf[dep + 2], depbuf[dep + 3], depbuf[dep + 4], depbuf[dep + 5], depbuf[dep + 6], depbuf[dep + 7]) \
     depend(in: depbuf[dep + 8], depbuf[dep + 9], depbuf[dep + 10], depbuf[dep + 11], depbuf[dep + 12], depbuf[dep + 13], depbuf[dep + 14]) \
     depend(inout: depbuf[dep + 15])
-        { delay(delaylength); }
-        break;
+          { delay(delaylength); }
+          break;
         case 24:
 #pragma omp task depend(in: depbuf[dep + 0], depbuf[dep + 1], depbuf[dep + 2], depbuf[dep + 3], depbuf[dep + 4], depbuf[dep + 5], depbuf[dep + 6], depbuf[dep + 7])\
     depend(in: depbuf[dep + 8], depbuf[dep + 9], depbuf[dep + 10], depbuf[dep + 11], depbuf[dep + 12], depbuf[dep + 13], depbuf[dep + 14], depbuf[dep + 15])\
     depend(in: depbuf[dep + 16], depbuf[dep + 17], depbuf[dep + 18], depbuf[dep + 19], depbuf[dep + 20], depbuf[dep + 21], depbuf[dep + 22]) \
     depend(inout: depbuf[dep + 23])
-        { delay(delaylength); }
-        break;
-
+          { delay(delaylength); }
+          break;
         case 32:
 #pragma omp task depend(in: depbuf[dep + 0], depbuf[dep + 1], depbuf[dep + 2], depbuf[dep + 3], depbuf[dep + 4], depbuf[dep + 5], depbuf[dep + 6], depbuf[dep + 7])\
     depend(in: depbuf[dep + 8], depbuf[dep + 9], depbuf[dep + 10], depbuf[dep + 11], depbuf[dep + 12], depbuf[dep + 13], depbuf[dep + 14], depbuf[dep + 15])\
     depend(in: depbuf[dep + 16], depbuf[dep + 17], depbuf[dep + 18], depbuf[dep + 19], depbuf[dep + 20], depbuf[dep + 21], depbuf[dep + 22], depbuf[dep + 23])\
     depend(in: depbuf[dep + 24], depbuf[dep + 25], depbuf[dep + 26], depbuf[dep + 27], depbuf[dep + 28], depbuf[dep + 29], depbuf[dep + 30]) \
     depend(inout: depbuf[dep + 31])
-        { delay(delaylength); }
-        break;
+          { delay(delaylength); }
+          break;
         }
       }
-    }
 #pragma omp taskwait
+    }
   }
 }
 
@@ -1159,47 +567,48 @@ void testTaskDependencyInOutChainMaster() {
       for (int j = 0; j < numberoftasks; j++) {
         int dep = 0;
         switch(NumDeps){
+        case 0:
+#pragma omp task
+          { delay(delaylength); }
+          break;
         case 1:
 #pragma omp task depend(inout: depbuf[dep + 0]) 
-        { delay(delaylength); }
-        break;
+          { delay(delaylength); }
+          break;
         case 2:
 #pragma omp task depend(inout: depbuf[dep + 0], depbuf[dep + 1]) 
-        { delay(delaylength); }
-        break;
+          { delay(delaylength); }
+          break;
         case 4:
 #pragma omp task depend(inout: depbuf[dep + 0], depbuf[dep + 1], depbuf[dep + 2], depbuf[dep + 3]) 
-        { delay(delaylength); }
-        break;
+          { delay(delaylength); }
+          break;
         case 8:
 #pragma omp task depend(inout: depbuf[dep + 0], depbuf[dep + 1], depbuf[dep + 2], depbuf[dep + 3], depbuf[dep + 4], depbuf[dep + 5], depbuf[dep + 6], depbuf[dep + 7]) 
-        { delay(delaylength); }
-        break;
+          { delay(delaylength); }
+          break;
         case 16:
 #pragma omp task depend(inout: depbuf[dep + 0], depbuf[dep + 1], depbuf[dep + 2], depbuf[dep + 3], depbuf[dep + 4], depbuf[dep + 5], depbuf[dep + 6], depbuf[dep + 7]) \
     depend(inout: depbuf[dep + 8], depbuf[dep + 9], depbuf[dep + 10], depbuf[dep + 11], depbuf[dep + 12], depbuf[dep + 13], depbuf[dep + 14], depbuf[dep + 15])
-        { delay(delaylength); }
-        break;
+          { delay(delaylength); }
+          break;
         case 24:
 #pragma omp task depend(inout: depbuf[dep + 0], depbuf[dep + 1], depbuf[dep + 2], depbuf[dep + 3], depbuf[dep + 4], depbuf[dep + 5], depbuf[dep + 6], depbuf[dep + 7])\
     depend(inout: depbuf[dep + 8], depbuf[dep + 9], depbuf[dep + 10], depbuf[dep + 11], depbuf[dep + 12], depbuf[dep + 13], depbuf[dep + 14], depbuf[dep + 15])\
     depend(inout: depbuf[dep + 16], depbuf[dep + 17], depbuf[dep + 18], depbuf[dep + 19], depbuf[dep + 20], depbuf[dep + 21], depbuf[dep + 22], depbuf[dep + 23])
-        { delay(delaylength); }
-        break;
-
+          { delay(delaylength); }
+          break;
         case 32:
 #pragma omp task depend(inout: depbuf[dep + 0], depbuf[dep + 1], depbuf[dep + 2], depbuf[dep + 3], depbuf[dep + 4], depbuf[dep + 5], depbuf[dep + 6], depbuf[dep + 7])\
     depend(inout: depbuf[dep + 8], depbuf[dep + 9], depbuf[dep + 10], depbuf[dep + 11], depbuf[dep + 12], depbuf[dep + 13], depbuf[dep + 14], depbuf[dep + 15])\
     depend(inout: depbuf[dep + 16], depbuf[dep + 17], depbuf[dep + 18], depbuf[dep + 19], depbuf[dep + 20], depbuf[dep + 21], depbuf[dep + 22], depbuf[dep + 23])\
     depend(inout: depbuf[dep + 24], depbuf[dep + 25], depbuf[dep + 26], depbuf[dep + 27], depbuf[dep + 28], depbuf[dep + 29], depbuf[dep + 30], depbuf[dep + 31])
-        { delay(delaylength); }
-        break;
+          { delay(delaylength); }
+          break;
         }
-
-
       }
-    }
 #pragma omp taskwait
+    }
   }
 }
 
@@ -1211,47 +620,48 @@ void testTaskDependencyOutLinkedMaster() {
       for (int j = 0; j < numberoftasks; j++) {
         int dep = j*(NumDeps - 1);
         switch(NumDeps){
+        case 0:
+#pragma omp task
+          { delay(delaylength); }
+          break;
         case 1:
 #pragma omp task depend(out: depbuf[dep + 0]) 
-        { delay(delaylength); }
-        break;
+          { delay(delaylength); }
+          break;
         case 2:
 #pragma omp task depend(out: depbuf[dep + 0], depbuf[dep + 1]) 
-        { delay(delaylength); }
-        break;
+          { delay(delaylength); }
+          break;
         case 4:
 #pragma omp task depend(out: depbuf[dep + 0], depbuf[dep + 1], depbuf[dep + 2], depbuf[dep + 3]) 
-        { delay(delaylength); }
-        break;
+          { delay(delaylength); }
+          break;
         case 8:
 #pragma omp task depend(out: depbuf[dep + 0], depbuf[dep + 1], depbuf[dep + 2], depbuf[dep + 3], depbuf[dep + 4], depbuf[dep + 5], depbuf[dep + 6], depbuf[dep + 7]) 
-        { delay(delaylength); }
-        break;
+          { delay(delaylength); }
+          break;
         case 16:
 #pragma omp task depend(out: depbuf[dep + 0], depbuf[dep + 1], depbuf[dep + 2], depbuf[dep + 3], depbuf[dep + 4], depbuf[dep + 5], depbuf[dep + 6], depbuf[dep + 7]) \
     depend(out: depbuf[dep + 8], depbuf[dep + 9], depbuf[dep + 10], depbuf[dep + 11], depbuf[dep + 12], depbuf[dep + 13], depbuf[dep + 14], depbuf[dep + 15])
-        { delay(delaylength); }
-        break;
+          { delay(delaylength); }
+          break;
         case 24:
 #pragma omp task depend(out: depbuf[dep + 0], depbuf[dep + 1], depbuf[dep + 2], depbuf[dep + 3], depbuf[dep + 4], depbuf[dep + 5], depbuf[dep + 6], depbuf[dep + 7])\
     depend(out: depbuf[dep + 8], depbuf[dep + 9], depbuf[dep + 10], depbuf[dep + 11], depbuf[dep + 12], depbuf[dep + 13], depbuf[dep + 14], depbuf[dep + 15])\
     depend(out: depbuf[dep + 16], depbuf[dep + 17], depbuf[dep + 18], depbuf[dep + 19], depbuf[dep + 20], depbuf[dep + 21], depbuf[dep + 22], depbuf[dep + 23])
-        { delay(delaylength); }
-        break;
-
+          { delay(delaylength); }
+          break;
         case 32:
 #pragma omp task depend(out: depbuf[dep + 0], depbuf[dep + 1], depbuf[dep + 2], depbuf[dep + 3], depbuf[dep + 4], depbuf[dep + 5], depbuf[dep + 6], depbuf[dep + 7])\
     depend(out: depbuf[dep + 8], depbuf[dep + 9], depbuf[dep + 10], depbuf[dep + 11], depbuf[dep + 12], depbuf[dep + 13], depbuf[dep + 14], depbuf[dep + 15])\
     depend(out: depbuf[dep + 16], depbuf[dep + 17], depbuf[dep + 18], depbuf[dep + 19], depbuf[dep + 20], depbuf[dep + 21], depbuf[dep + 22], depbuf[dep + 23])\
     depend(out: depbuf[dep + 24], depbuf[dep + 25], depbuf[dep + 26], depbuf[dep + 27], depbuf[dep + 28], depbuf[dep + 29], depbuf[dep + 30], depbuf[dep + 31])
-        { delay(delaylength); }
-        break;
+          { delay(delaylength); }
+          break;
         }
-
-
       }
-    }
 #pragma omp taskwait
+    }
   }
 }
 
@@ -1263,49 +673,52 @@ void testTaskDependencyInLinkedMaster() {
       for (int j = 0; j < numberoftasks; j++) {
         int dep = j*(NumDeps - 1);
         switch(NumDeps){
+        case 0:
+#pragma omp task
+          { delay(delaylength); }
+          break;
         case 1:
 #pragma omp task depend(inout: depbuf[dep + 0]) 
-        { delay(delaylength); }
-        break;
+          { delay(delaylength); }
+          break;
         case 2:
 #pragma omp task depend(in: depbuf[dep + 0]) depend(inout: depbuf[dep + 1]) 
-        { delay(delaylength); }
-        break;
+          { delay(delaylength); }
+          break;
         case 4:
 #pragma omp task depend(in: depbuf[dep + 0], depbuf[dep + 1], depbuf[dep + 2]) depend(inout: depbuf[dep + 3]) 
-        { delay(delaylength); }
-        break;
+          { delay(delaylength); }
+          break;
         case 8:
 #pragma omp task depend(in: depbuf[dep + 0], depbuf[dep + 1], depbuf[dep + 2], depbuf[dep + 3], depbuf[dep + 4], depbuf[dep + 5], depbuf[dep + 6]) \
     depend(inout: depbuf[dep + 7])
-        { delay(delaylength); }
-        break;
+          { delay(delaylength); }
+          break;
         case 16:
 #pragma omp task depend(in: depbuf[dep + 0], depbuf[dep + 1], depbuf[dep + 2], depbuf[dep + 3], depbuf[dep + 4], depbuf[dep + 5], depbuf[dep + 6], depbuf[dep + 7]) \
     depend(in: depbuf[dep + 8], depbuf[dep + 9], depbuf[dep + 10], depbuf[dep + 11], depbuf[dep + 12], depbuf[dep + 13], depbuf[dep + 14]) \
     depend(inout: depbuf[dep + 15])
-        { delay(delaylength); }
-        break;
+          { delay(delaylength); }
+          break;
         case 24:
 #pragma omp task depend(in: depbuf[dep + 0], depbuf[dep + 1], depbuf[dep + 2], depbuf[dep + 3], depbuf[dep + 4], depbuf[dep + 5], depbuf[dep + 6], depbuf[dep + 7])\
     depend(in: depbuf[dep + 8], depbuf[dep + 9], depbuf[dep + 10], depbuf[dep + 11], depbuf[dep + 12], depbuf[dep + 13], depbuf[dep + 14], depbuf[dep + 15])\
     depend(in: depbuf[dep + 16], depbuf[dep + 17], depbuf[dep + 18], depbuf[dep + 19], depbuf[dep + 20], depbuf[dep + 21], depbuf[dep + 22]) \
     depend(inout: depbuf[dep + 23])
-        { delay(delaylength); }
-        break;
-
+          { delay(delaylength); }
+          break;
         case 32:
 #pragma omp task depend(in: depbuf[dep + 0], depbuf[dep + 1], depbuf[dep + 2], depbuf[dep + 3], depbuf[dep + 4], depbuf[dep + 5], depbuf[dep + 6], depbuf[dep + 7])\
     depend(in: depbuf[dep + 8], depbuf[dep + 9], depbuf[dep + 10], depbuf[dep + 11], depbuf[dep + 12], depbuf[dep + 13], depbuf[dep + 14], depbuf[dep + 15])\
     depend(in: depbuf[dep + 16], depbuf[dep + 17], depbuf[dep + 18], depbuf[dep + 19], depbuf[dep + 20], depbuf[dep + 21], depbuf[dep + 22], depbuf[dep + 23])\
     depend(in: depbuf[dep + 24], depbuf[dep + 25], depbuf[dep + 26], depbuf[dep + 27], depbuf[dep + 28], depbuf[dep + 29], depbuf[dep + 30]) \
     depend(inout: depbuf[dep + 31])
-        { delay(delaylength); }
-        break;
+          { delay(delaylength); }
+          break;
         }
       }
-    }
 #pragma omp taskwait
+    }
   }
 }
 
@@ -1319,46 +732,47 @@ void testTaskDependencyInOutLinkedMaster() {
       for (int j = 0; j < numberoftasks; j++) {
         int dep = j*(NumDeps - 1);
         switch(NumDeps){
+        case 0:
+#pragma omp task
+          { delay(delaylength); }
+          break;
         case 1:
 #pragma omp task depend(inout: depbuf[dep + 0]) 
-        { delay(delaylength); }
-        break;
+          { delay(delaylength); }
+          break;
         case 2:
 #pragma omp task depend(inout: depbuf[dep + 0], depbuf[dep + 1]) 
-        { delay(delaylength); }
-        break;
+          { delay(delaylength); }
+          break;
         case 4:
 #pragma omp task depend(inout: depbuf[dep + 0], depbuf[dep + 1], depbuf[dep + 2], depbuf[dep + 3]) 
-        { delay(delaylength); }
-        break;
+          { delay(delaylength); }
+          break;
         case 8:
 #pragma omp task depend(inout: depbuf[dep + 0], depbuf[dep + 1], depbuf[dep + 2], depbuf[dep + 3], depbuf[dep + 4], depbuf[dep + 5], depbuf[dep + 6], depbuf[dep + 7]) 
-        { delay(delaylength); }
-        break;
+          { delay(delaylength); }
+          break;
         case 16:
 #pragma omp task depend(inout: depbuf[dep + 0], depbuf[dep + 1], depbuf[dep + 2], depbuf[dep + 3], depbuf[dep + 4], depbuf[dep + 5], depbuf[dep + 6], depbuf[dep + 7]) \
     depend(inout: depbuf[dep + 8], depbuf[dep + 9], depbuf[dep + 10], depbuf[dep + 11], depbuf[dep + 12], depbuf[dep + 13], depbuf[dep + 14], depbuf[dep + 15])
-        { delay(delaylength); }
-        break;
+          { delay(delaylength); }
+          break;
         case 24:
 #pragma omp task depend(inout: depbuf[dep + 0], depbuf[dep + 1], depbuf[dep + 2], depbuf[dep + 3], depbuf[dep + 4], depbuf[dep + 5], depbuf[dep + 6], depbuf[dep + 7])\
     depend(inout: depbuf[dep + 8], depbuf[dep + 9], depbuf[dep + 10], depbuf[dep + 11], depbuf[dep + 12], depbuf[dep + 13], depbuf[dep + 14], depbuf[dep + 15])\
     depend(inout: depbuf[dep + 16], depbuf[dep + 17], depbuf[dep + 18], depbuf[dep + 19], depbuf[dep + 20], depbuf[dep + 21], depbuf[dep + 22], depbuf[dep + 23])
         { delay(delaylength); }
         break;
-
         case 32:
 #pragma omp task depend(inout: depbuf[dep + 0], depbuf[dep + 1], depbuf[dep + 2], depbuf[dep + 3], depbuf[dep + 4], depbuf[dep + 5], depbuf[dep + 6], depbuf[dep + 7])\
     depend(inout: depbuf[dep + 8], depbuf[dep + 9], depbuf[dep + 10], depbuf[dep + 11], depbuf[dep + 12], depbuf[dep + 13], depbuf[dep + 14], depbuf[dep + 15])\
     depend(inout: depbuf[dep + 16], depbuf[dep + 17], depbuf[dep + 18], depbuf[dep + 19], depbuf[dep + 20], depbuf[dep + 21], depbuf[dep + 22], depbuf[dep + 23])\
     depend(inout: depbuf[dep + 24], depbuf[dep + 25], depbuf[dep + 26], depbuf[dep + 27], depbuf[dep + 28], depbuf[dep + 29], depbuf[dep + 30], depbuf[dep + 31])
-        { delay(delaylength); }
-        break;
+          { delay(delaylength); }
+          break;
         }
-
-
       }
-    }
 #pragma omp taskwait
+    }
   }
 }
