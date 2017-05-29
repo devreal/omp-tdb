@@ -1209,7 +1209,7 @@ void testTaskDependencyOutLinkedMaster() {
 #pragma omp master
     {
       for (int j = 0; j < numberoftasks; j++) {
-        int dep = j*NumDeps - 1;
+        int dep = j*(NumDeps - 1);
         switch(NumDeps){
         case 1:
 #pragma omp task depend(out: depbuf[dep + 0]) 
@@ -1261,7 +1261,7 @@ void testTaskDependencyInLinkedMaster() {
 #pragma omp master
     {
       for (int j = 0; j < numberoftasks; j++) {
-        int dep = j*NumDeps - 1;
+        int dep = j*(NumDeps - 1);
         switch(NumDeps){
         case 1:
 #pragma omp task depend(inout: depbuf[dep + 0]) 
@@ -1317,7 +1317,7 @@ void testTaskDependencyInOutLinkedMaster() {
 #pragma omp master
     {
       for (int j = 0; j < numberoftasks; j++) {
-        int dep = j*NumDeps - 1;
+        int dep = j*(NumDeps - 1);
         switch(NumDeps){
         case 1:
 #pragma omp task depend(inout: depbuf[dep + 0]) 
